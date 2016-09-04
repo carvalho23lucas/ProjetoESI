@@ -1,4 +1,4 @@
-before_script: cd ProjetoESI
+before_install: cd ProjetoESI
 before_script: gem install rake
 before_script: bundle install
 language: ruby
