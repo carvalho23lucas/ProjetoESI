@@ -1,4 +1,6 @@
 before_script: cd ProjetoESI
+before_script: gem install rake
+before_script: bundle install
 language: ruby
 rvm:
   - 2.3.1
