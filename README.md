@@ -13,4 +13,4 @@ Lucas da Costa Carvalho         9019320
 Descrição do problema a ser resolvido pelo software:  
 Existe certa dificuldade de encontrar instituições que recebam doações de objetos específicos, como móveis, roupas, 
 ou até alimentos, já que não existe nenhuma ferramenta integrada capaz de unir as funcionalidades de descrever o tipo de doação que a 
-instituição aceita, o endereço, os horários e até uma agenda.  
+instituição aceita, o endereço, os horários e até uma agenda.   
