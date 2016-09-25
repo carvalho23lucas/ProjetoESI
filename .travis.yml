@@ -1,5 +1,9 @@
-before_script: gem install rake
-before_script: bundle install
+before_script: 
+  - gem install rake
+  - bundle install
+  - psql -c 'create database app_test;' -U postgres
+services:
+  - postgresql
 language: ruby
 rvm:
   - 2.3.1
