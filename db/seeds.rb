@@ -10,21 +10,29 @@ require 'json'
 
 module BRPopulate
   def self.states
-    http = Net::HTTP.new('raw.githubusercontent.com', 443); http.use_ssl = true
-    JSON.parse http.get('/celsodantas/br_populate/master/states.json').body
+    JSON.parse File.open(File.join(Rails.root, 'app/assets/javascripts', 'states.json')).read
+  end
+  
+  def self.areas_atuacao
+    JSON.parse File.open(File.join(Rails.root, 'app/assets/javascripts', 'areas_atuacao.json')).read
   end
 
   def self.populate
     states.each do |state|
-      state_obj = Estado.new(:sigla => state["acronym"], :nome => state["name"])
+      state_obj = Estado.new(:sigla => state["sigla"], :nome => state["nome"])
       state_obj.save
 
-      state["cities"].each do |city|
+      state["cidades"].each do |city|
         c = Cidade.new
-        c.nome = city["name"]
+        c.nome = city["nome"]
         c.estado = state_obj
         c.save
       end
+    end
+    
+    areas_atuacao.each do |area_atuacao|
+      area_atuacao_obj = AreasAtuacao.new(:nome => area_atuacao["nome"])
+      area_atuacao_obj.save
     end
   end
 end
