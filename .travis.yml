@@ -1,9 +1,9 @@
 before_script: 
   - gem install rake
   - bundle install
-  - rake db:config
-  - rake db:migrate
-  - rake db:seed
+  - bundle exec rake db:config
+  - bundle exec rake db:migrate
+  - bundle exec rake db:seed
 services:
   - postgresql
 language: ruby
