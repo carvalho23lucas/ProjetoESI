@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,15 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-require 'pg'
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20161009180104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-end
+  create_table "areas_atuacaos", force: :cascade do |t|
+    t.string   "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
-ActiveRecord::Base.establish_connection(:adapter => "postgresql",
-                                        :username => "ubuntu",
-                                        :password => "projetoESI",
-                                        :database => "projetoESI")
+  create_table "cidades", force: :cascade do |t|
+    t.string   "nome"
+    t.integer  "estado_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["estado_id"], name: "index_cidades_on_estado_id", using: :btree
+  end
+
+  create_table "estados", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "sigla"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "cidades", "estados"
+end
