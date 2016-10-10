@@ -8,7 +8,7 @@
 require 'net/http'
 require 'json'
 
-module BRPopulate
+module Populate
   def self.states
     JSON.parse File.open(File.join(Rails.root, 'app/assets/javascripts', 'states.json')).read
   end
@@ -18,6 +18,11 @@ module BRPopulate
   end
 
   def self.populate
+    areas_atuacao.each do |area_atuacao|
+      area_atuacao_obj = AreaAtuacao.new(:nome => area_atuacao["nome"])
+      area_atuacao_obj.save
+    end
+    
     states.each do |state|
       state_obj = Estado.new(:sigla => state["sigla"], :nome => state["nome"])
       state_obj.save
@@ -29,12 +34,7 @@ module BRPopulate
         c.save
       end
     end
-    
-    areas_atuacao.each do |area_atuacao|
-      area_atuacao_obj = AreasAtuacao.new(:nome => area_atuacao["nome"])
-      area_atuacao_obj.save
-    end
   end
 end
 
-BRPopulate.populate
+Populate.populate

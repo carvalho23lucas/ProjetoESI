@@ -1,2 +1,0 @@
-class AreasAtuacao < ApplicationRecord
-end

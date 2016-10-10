@@ -1,0 +1,2 @@
+class AreaAtuacao < ApplicationRecord
+end
