@@ -1,0 +1,14 @@
+[
+  {"nome": "Alimentos"},
+  {"nome": "Bebidas"},
+  {"nome": "Produtos de Limpeza"},
+  {"nome": "Produtos de Higiene"},
+  {"nome": "Roupas de cama, mesa e banho"},
+  {"nome": "Utensílios"},
+  {"nome": "Móveis"},
+  {"nome": "Brinquedos"},
+  {"nome": "Livros"},
+  {"nome": "Remédios"},
+  {"nome": "Materiais de Construção"},
+  {"nome": "Eletrônicos"}
+]
