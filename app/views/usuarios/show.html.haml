@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Documento:
+  = @usuario.documento
+%p
+  %b Nome:
+  = @usuario.nome
+%p
+  %b Email:
+  = @usuario.email
+%p
+  %b Senha:
+  = @usuario.senha
+%p
+  %b Cidade:
+  = @usuario.cidade
+%p
+  %b Ispj:
+  = @usuario.isPJ
+%p
+  %b Isinstituicao:
+  = @usuario.isInstituicao
+
+= link_to 'Edit', edit_usuario_path(@usuario)
+\|
+= link_to 'Back', usuarios_path
