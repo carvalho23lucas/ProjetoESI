@@ -2,9 +2,30 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Deus perdoe essas pessoas ruins
+    %title Connect Donations
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    
   %body
-    = yield
+    #header
+      .logo
+        %img{:alt => "Logo", :border => "0", :height => "95", :src => "/images/logo1.png", :width => "95"}/
+      %a{:href => "/home/index"}
+        .linkheader
+          .buttonlink
+            HOME
+      %a{:href => "https://google.com"}      
+        .linkheader  
+          .buttonlink
+            SOBRE
+      .loginheader
+        .buttonlink
+          LOGIN
+    #midsection
+      %br/
+      %br/
+      = yield
+    #footer
+      Não te esqueceremos Cunha - 2016
+
