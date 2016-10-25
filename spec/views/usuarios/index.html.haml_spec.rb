@@ -31,8 +31,8 @@ RSpec.describe "usuarios/index", type: :view do
     assert_select "tr>td", :text => "Nome".to_s, :count => 2
     assert_select "tr>td", :text => "Email".to_s, :count => 2
     assert_select "tr>td", :text => "Senha".to_s, :count => 2
-    assert_select "tr>td", :text => cidade.to_s, :count => 2
-    assert_select "tr>td", :text => false.to_s, :count => 2
-    assert_select "tr>td", :text => true.to_s, :count => 2
+    assert_select "tr>td", :text => cidade.nome.to_s, :count => 2
+    assert_select "tr>td", :text => "Não".to_s, :count => 2
+    assert_select "tr>td", :text => "Sim".to_s, :count => 2
   end
 end

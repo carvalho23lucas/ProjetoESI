@@ -20,7 +20,7 @@ RSpec.describe "usuarios/show", type: :view do
     expect(rendered).to match(/Email/)
     expect(rendered).to match(/Senha/)
     expect(rendered).to match(//)
-    expect(rendered).to match(/false/)
-    expect(rendered).to match(/false/)
+    expect(rendered).to match(/Não/)
+    expect(rendered).to match(/Não/)
   end
 end
