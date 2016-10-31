@@ -19,14 +19,22 @@
         .linkheader  
           .buttonlink
             SOBRE
-      .loginheader
-        .buttonlink
-          LOGIN
+      .logoTexto
+        %img{:alt => "Logo", :border => "0", :height => "95", :src => "/images/logotexto.png"}/  
+      %a{:href => "/home/index"}
+        .loginheader
+          .buttonlink
+            LOGIN
+      %a{:href => "/home/index"}
+        .loginheader
+          .buttonlink
+            CADASTRE-SE
     #midsection
       %br/
       %br/
       .animBottom
         = yield
     #footer
-      Não te esqueceremos Cunha - 2016
+      .footerTexto
+        Connect Donations - 2016
 
