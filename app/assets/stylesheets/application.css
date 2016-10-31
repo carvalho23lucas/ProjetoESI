@@ -212,7 +212,7 @@ h1{
 
 .grupo1 {
     margin-left: 80px;
-      display: flex;
+    display: flex;
 }
 
 .grupo1 h3{
@@ -227,6 +227,12 @@ h1{
     color: transparent;
     background-color: transparent;
 }
+
+.grupo2 {
+    margin-left: 80px;
+    display: flex;
+}
+
 
 .logo {
  margin-left: 16px;
