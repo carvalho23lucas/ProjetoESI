@@ -1,4 +1,4 @@
-%h1 Listing usuarios
+%h1 Usuários cadastrados
 
 %table
   %thead
@@ -8,8 +8,8 @@
       %th Email
       %th Senha
       %th Cidade
-      %th Ispj
-      %th Isinstituicao
+      %th Empresa
+      %th Instituicao
       %th
       %th
       %th
@@ -21,13 +21,13 @@
         %td= usuario.nome
         %td= usuario.email
         %td= usuario.senha
-        %td= usuario.cidade
-        %td= usuario.isPJ
-        %td= usuario.isInstituicao
-        %td= link_to 'Show', usuario
-        %td= link_to 'Edit', edit_usuario_path(usuario)
-        %td= link_to 'Destroy', usuario, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= usuario.cidade.nome
+        %td= usuario.isPJ ? "Sim" : "Não"
+        %td= usuario.isInstituicao ? "Sim" : "Não"
+        %td= link_to 'Ver', usuario
+        %td= link_to 'Editar', edit_usuario_path(usuario)
+        %td= link_to 'Excluir', usuario, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Usuario', new_usuario_path
+= link_to 'Cadastrar novo usuário', new_usuario_path

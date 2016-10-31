@@ -14,14 +14,14 @@
   = @usuario.senha
 %p
   %b Cidade:
-  = @usuario.cidade
+  = @usuario.cidade.nome
 %p
-  %b Ispj:
-  = @usuario.isPJ
+  %b Empresa:
+  = @usuario.isPJ ? "Sim" : "Não"
 %p
-  %b Isinstituicao:
-  = @usuario.isInstituicao
+  %b Instituicao:
+  = @usuario.isInstituicao ? "Sim" : "Não"
 
-= link_to 'Edit', edit_usuario_path(@usuario)
+= link_to 'Editar', edit_usuario_path(@usuario)
 \|
-= link_to 'Back', usuarios_path
+= link_to 'Voltar', usuarios_path

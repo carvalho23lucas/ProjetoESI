@@ -1,0 +1,41 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Connect Donations
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    
+  %body
+    #header
+      .logo
+        %img{:alt => "Logo", :border => "0", :height => "95", :src => "/images/logo1.png", :width => "95"}/
+      %a{:href => "/home/index"}
+        .linkheader
+          .buttonlink
+            HOME
+      %a{:href => "/about/about"}      
+        .linkheader  
+          .buttonlink
+            SOBRE
+      .logoTexto
+        %img{:alt => "Logo", :border => "0", :height => "95", :src => "/images/logotexto.png"}/  
+      %a{:href => "/usuarios/new"}
+        .loginheader
+          .buttonlink
+            LOGIN
+      %a{:href => "/home/selectusertype"}      
+        .loginheader  
+          .buttonlink
+            CADASTRE-SE
+      
+    #midsection
+      %br/
+      %br/
+      .animBottom
+        = yield
+    #footer
+      .footerTexto
+        Connect Donations - 2016
+

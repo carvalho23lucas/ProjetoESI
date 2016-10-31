@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
-
   resources :usuarios
   get 'home/index'
   get 'cadastro/cadastrousuariodoador'
+  get 'cadastro/cadastrodoador'
+  get 'about/about'
+  get 'home/selectusertype'
   
   root 'home#index'
   
