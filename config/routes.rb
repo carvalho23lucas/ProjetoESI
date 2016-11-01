@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'login/login'
+  post 'login/login'
+
   resources :usuarios
   get 'home/index'
   get 'cadastro/cadastrousuariodoador'
