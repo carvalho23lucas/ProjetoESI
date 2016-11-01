@@ -317,6 +317,8 @@ animation-delay:3s;}
   height: auto;
   
   width: 814px;
+  max-width: 814px;
+  
   vertical-align: middle; 
   text-align: center;
   
@@ -480,8 +482,6 @@ label {
 
 p{
    margin: 3;
-   text-align: justify;
-   text-indent: 40px;
 }
  
  
