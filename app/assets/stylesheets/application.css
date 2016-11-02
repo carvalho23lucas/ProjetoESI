@@ -229,7 +229,7 @@ h1{
 }
 
 .grupo2 {
-    margin-left: 80px;
+
     display: flex;
 }
 
@@ -366,6 +366,10 @@ fieldset{
     border-color: #eaeaea;
 }
 
+.separador3{    
+    width: 100px;
+}
+
 .titulo{
     background-color: #4f4b69;
     color: #ffffff;
@@ -489,5 +493,34 @@ p{
    text-align: justify;
    text-indent: 40px;
 }
- 
+
+.homeImage {
+
+  margin: 0;
+  background-repeat: no-repeat;
+  
+  background-size: 100;
+  width:814px;
+  height:355px;
+  background-attachment: fixed;
+  
+}
+
+.descrHome1 {
+
+    margin: 20px;
+    max-width: 400px;
+}
+
+.descrHome2 {
+    
+    color: #FFFFFF;
+    margin: 20px;
+    max-width: 400px;
+}
+
+
+
+
+
  
