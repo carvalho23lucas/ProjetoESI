@@ -27,6 +27,8 @@ RSpec.describe "usuarios/new", type: :view do
 
       assert_select "input#usuario_senha[name=?]", "usuario[senha]"
 
+      #assert_select "select#usuario_estado[name=?]", "cidade.estado"
+      
       #assert_select "select#usuario_cidade[name=?]", "cidade.nome"
 
     end

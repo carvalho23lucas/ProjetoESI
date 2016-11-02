@@ -1,4 +1,23 @@
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script type="text/javascript">
+    jQuery(function($) {
+        $("idEstado").change(function(){
+            var url = '/cidadesporestado?idEstado=' + $(this).val()
+            $('form#cidade').removeOption(/./)
+            $.get(url, function(data) {
+                $('form#cidade').addOption(data, false);
+            });
+        });
+    })
+</script>
 <%= form_for @usuario, url: {action: "create"} do |f| %>
+    <div class="grupo2">
+        <h2>Cadastro de usuarios - Pessoa Física</h2>
+    </div>
+    
+    <% idEstado=1 %>
+    
     <% if @usuario.errors.any? %>
         <div id="error_explanation">
             <h2> <%= pluralize(@usuario.errors.count, "error") %> prohibited this usuario from being saved: </h2>
@@ -9,23 +28,42 @@
             <% end %>
         </div>
     <% end %>
-
-    <%= f.label :documento, "CPF:" %><br>
-    <%= f.text_field :documento, :required => true %><br>
-  
-    <%= f.label :nome, "Nome:" %><br>
-    <%= f.text_field :nome %><br>
-  
-    <%= f.label :email, "E-mail:" %><br>
-    <%= f.text_field :email %><br>
-  
-    <%= f.label :senha, "Senha: " %><br>
-    <%= f.text_field :senha %><br>
-  
-    <% cities_array = Cidade.all.map { |cidade| [cidade.nome, cidade.id] } %>
-
-    <%= f.label :cidade_id, "Cidade: " %><br>
-    <%= f.select(:cidade_id, options_for_select(cities_array)) %>
-    <%= f.submit "Cadastrar" %><br>
+    <div class="grupo2">
+        <%= f.label :documento, "CPF:" %>
+        <%= f.text_field :documento, :required => true %>
+    </div>
+    <br>
+    <div class="grupo2">
+        <%= f.label :nome, "Nome:" %>
+        <%= f.text_field :nome %>
+    </div>
+    <br>
+    <div class="grupo2">
+        <%= f.label :email, "E-mail:" %>
+        <%= f.text_field :email %>
+    </div>
+    <br>
+    <div class="grupo2">
+        <%= f.label :senha, "Senha: " %>
+        <%= f.text_field :senha %>
+    </div>
+    <br>
+    <% estados_array = Estado.all.map { |estado| [estado.sigla, estado.id]} %>
     
+    <div class="grupo2">
+        <%= label idEstado,"Estado:"%>
+        <%= select_tag(idEstado, options_for_select(estados_array)) %>
+    </div>
+    <br>
+    
+    <% cidades = Cidade.all.map { |cidade| [cidade.nome, cidade.id] } %>
+    
+    <div class="grupo2">
+        <%= f.label :cidade_id, "Cidade: " %>
+        <%= f.select :cidade_id, options_for_select(cidades) %>
+    </div>
+    <br>
+    <div class="buttonlink">
+        <%= f.submit "Cadastrar" %><br>
+    </div>
 <% end %>
