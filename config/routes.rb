@@ -1,15 +1,21 @@
 Rails.application.routes.draw do
+  root 'home#index'
+  
+  # Rotas usuários
+  resources :usuarios
+    get '/usuarios/cadastro/doador' => 'usuarios#doador'
+    get '/usuarios/cadastro/empresadoadora' => 'usuarios#empresadoadora'
+  
+  # Rotas login
   get 'login/login'
   post 'login/login'
 
-  resources :usuarios
   get 'home/index'
-  get 'cadastro/cadastrousuariodoador'
-  get 'cadastro/cadastrodoador'
   get 'about/about'
   get 'home/selectusertype'
+  get 'contato/contato'
   
-  root 'home#index'
+  
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

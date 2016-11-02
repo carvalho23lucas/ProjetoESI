@@ -6,7 +6,6 @@
       %th Documento
       %th Nome
       %th Email
-      %th Senha
       %th Cidade
       %th Empresa
       %th Instituicao
@@ -20,13 +19,12 @@
         %td= usuario.documento
         %td= usuario.nome
         %td= usuario.email
-        %td= usuario.senha
         %td= usuario.cidade.nome
         %td= usuario.isPJ ? "Sim" : "Não"
         %td= usuario.isInstituicao ? "Sim" : "Não"
         %td= link_to 'Ver', usuario
         %td= link_to 'Editar', edit_usuario_path(usuario)
-        %td= link_to 'Excluir', usuario, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Excluir', usuario, :method => :delete, :data => { :confirm => 'Confirmar exclusão?' }
 
 %br
 

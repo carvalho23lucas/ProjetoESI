@@ -1,8 +1,14 @@
 %p#notice= notice
-
 %p
-  %b Documento:
-  = @usuario.documento
+- if @usuario.isPJ?
+  %p
+    %b CNPJ:
+    = @usuario.documento
+
+- if !@usuario.isPJ?
+  %p
+    %b CPF:
+    = @usuario.documento
 %p
   %b Nome:
   = @usuario.nome
@@ -10,15 +16,17 @@
   %b Email:
   = @usuario.email
 %p
-  %b Senha:
-  = @usuario.senha
+  %b UF:
+  = Estado.where(id: @usuario.cidade.estado.id).first.sigla
 %p
   %b Cidade:
   = @usuario.cidade.nome
 %p
-  %b Empresa:
-  = @usuario.isPJ ? "Sim" : "Não"
-%p
-  %b Instituicao:
-  = @usuario.isInstituicao ? "Sim" : "Não"
+  %b Tipo:
+  = @usuario.isPJ ? "Empresa" : "Pessoa Física"
 
+.separador2
+  %h3 Quer atualizar alguma informação?
+  %a{:href => edit_usuario_path(@usuario)}    
+    .buttonbig
+      .buttonlink EDITAR    
