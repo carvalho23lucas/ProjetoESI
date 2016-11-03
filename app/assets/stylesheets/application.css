@@ -340,7 +340,7 @@ animation-delay:3s;}
  
 }
 
-form{
+.form{
     text-align: left;
     
     margin-left: 30;
@@ -389,12 +389,27 @@ fieldset{
     display: block;
 }
 
+.categoriaForm1{
+    display: block;
+    position: absolute;
+    
+    top: 0%;
+    transform: translateY(-50%);
+    transform: translateX(-50%);
+    left: 50%;
+}
+
 .itemForm{
     margin: 18px;
     display: flex;
 }
 
-label {     
+.itemFormLogin{
+    position: relative;
+    
+}
+
+.labela {     
     display: block;     
     float: left; 
     margin-right:15px;     
@@ -406,9 +421,22 @@ label {
     
 }
 
+.labelb {     
+   
+    display: block;
+    margin-top:15px;     
+    margin-left:15px;     
+    text-align: center;     
+    width: 180px;     
+    line-height: 30px;     
+    font-size: 22px; 
+    margin: 0 auto;
+    
+}
+
 .input{
     
-    font-size: 15px;     
+    font-size: 22px;     
     padding: 5px;     
     border: 1.5px solid;     
     width: 300px;     
@@ -425,6 +453,30 @@ label {
 }
 
 .input:hover{
+    background: #f3f2f7;
+}
+
+.inputb{
+    
+     margin: 0 auto;
+    font-size: 15px;     
+    padding: 5px;     
+    border: 1.5px solid;     
+    width: 300px;     
+    color: #797979;     
+    border-color: #bababa;
+     
+    transition: background .25s ease-in-out;
+    -moz-transition: background .25s ease-in-out;
+    -webkit-transition: background .25s ease-in-out;
+  
+    -moz-border-radius:7px;
+    -webkit-border-radius:7px;
+    border-radius:7px;
+    
+}
+
+.inputb:hover{
     background: #f3f2f7;
 }
 
@@ -458,6 +510,39 @@ label {
 }
 
 .buttonForm:hover{
+    background: #64607a;
+}
+
+.buttonForm1{    
+    
+    background-color: #4f4b69;
+    
+    margin: 0 auto;
+      
+    margin-top: 20px;
+    
+    width: 150px; 
+    height: 50px;
+    
+    font-size: 15px;
+    font-weight: thin; 
+    
+    cursor:pointer;   
+    color: #fff;
+    text-align: center; 
+    
+    -moz-border-radius:7px;
+    -webkit-border-radius:7px;
+    border-radius:7px;
+    
+     transition: background .25s ease-in-out;
+    -moz-transition: background .25s ease-in-out;
+    -webkit-transition: background .25s ease-in-out;
+  
+    
+}
+
+.buttonForm1:hover{
     background: #64607a;
 }
 

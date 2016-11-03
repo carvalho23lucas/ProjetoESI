@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'cadastro/cadastrodoador'
   get 'about/about'
   get 'home/selectusertype'
+  get 'login/login'
   
   root 'home#index'
   
