@@ -61,6 +61,18 @@ class UsuariosController < ApplicationController
     end
   end
 
+  #def cidadesporestado
+  #   idEstado = params[:idEstado]
+  #   @cidades = CidadeCidade.where(estado: idEstado).all.map { |cidade| [cidade.nome, cidade.id]}     
+  #   render :partial => 'cidadesporestado'
+  #end
+  
+  def cidadesporestado
+    idEstado = params[:idEstado]
+    options = CidadeCidade.where(estado: idEstado).all.map { |cidade| [cidade.nome, cidade.id]}     
+    render :text => "{#{options.join(",")}}" 
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_usuario

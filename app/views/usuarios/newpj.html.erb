@@ -2,7 +2,7 @@
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script type="text/javascript">
     jQuery(function($) {
-        $("idEstado").change(function(){
+        $("#idEstado").change(function(){
             var url = '/cidadesporestado?idEstado=' + $(this).val()
             $('form#cidade').removeOption(/./)
             $.get(url, function(data) {
@@ -12,8 +12,8 @@
     })
 </script>
 <%= form_for @usuario, url: {action: "create"} do |f| %>
-    <div class="grupo2">
-        <h2>Cadastro de usuarios - Pessoa Física</h2>
+    <div class="grupo2,h2">
+        <h2>Cadastro de usuarios - Empresas</h2>
     </div>
     
     <% idEstado=1 %>
@@ -29,7 +29,7 @@
         </div>
     <% end %>
     <div class="grupo2">
-        <%= f.label :documento, "CPF:" %>
+        <%= f.label :documento, "CNPJ:" %>
         <%= f.text_field :documento, :required => true %>
     </div>
     <br>
@@ -40,12 +40,12 @@
     <br>
     <div class="grupo2">
         <%= f.label :email, "E-mail:" %>
-        <%= f.text_field :email %>
+        <%= f.email_field :email %>
     </div>
     <br>
     <div class="grupo2">
         <%= f.label :senha, "Senha: " %>
-        <%= f.text_field :senha %>
+        <%= f.password_field :senha %>
     </div>
     <br>
     <% estados_array = Estado.all.map { |estado| [estado.sigla, estado.id]} %>
