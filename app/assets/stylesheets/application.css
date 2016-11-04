@@ -34,6 +34,12 @@ h1{
     font-weight: lighter;
 }
 
+a{
+    text-decoration: none;
+    color: transparent;
+    background-color: transparent;
+}
+
 #header {
   background-color: #ffffff; 
   height: 95px;
@@ -247,7 +253,7 @@ h1{
 .logoTexto {
    color: #4f4b69;
    position: absolute;
-   top: 0%;
+   top: 15%;
    transform: translateY(-50%);
    transform: translateX(-50%);
    left: 50%;
