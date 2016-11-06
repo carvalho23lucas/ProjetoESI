@@ -15,6 +15,13 @@ class UsuariosController < ApplicationController
   # GET /usuarios/new
   def new
     @usuario = Usuario.new
+    @estados = Estado.all.order(:nome).map { |estado| [estado.sigla, estado.id]}.prepend(['Selecione um estado.', 0])
+    @cidades = Cidade.where(:estado_id => 0).order(:nome).map { |cidade| [cidade.nome, cidade.id] }.prepend(['Selecione uma cidade.', 0])
+  end
+  
+  def update_cidades
+    @cidades = Cidade.where(:estado_id => params[:estado_id]).order(:nome).map { |cidade| [cidade.nome, cidade.id] }.prepend(['Selecione uma cidade.', 0])
+    render partial: "cidades", locals: {cidades: @cidades}
   end
 
   # GET /usuarios/1/edit
@@ -59,18 +66,6 @@ class UsuariosController < ApplicationController
       format.html { redirect_to usuarios_url, notice: 'Usuario was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-  #def cidadesporestado
-  #   idEstado = params[:idEstado]
-  #   @cidades = CidadeCidade.where(estado: idEstado).all.map { |cidade| [cidade.nome, cidade.id]}     
-  #   render :partial => 'cidadesporestado'
-  #end
-  
-  def cidadesporestado
-    idEstado = params[:idEstado]
-    options = CidadeCidade.where(estado: idEstado).all.map { |cidade| [cidade.nome, cidade.id]}     
-    render :text => "{#{options.join(",")}}" 
   end
 
   private

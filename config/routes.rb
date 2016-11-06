@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :usuarios
     get '/usuarios/cadastro/doador' => 'usuarios#doador'
     get '/usuarios/cadastro/empresadoadora' => 'usuarios#empresadoadora'
+    post '/usuarios/new/update_cidades' => 'usuarios#update_cidades'
   
   # Rotas login
   get 'login/login'
@@ -13,8 +14,6 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'about/about'
   get 'home/selectusertype'
-
-  get 'login/login'
 
   get 'contato/contato'
 
