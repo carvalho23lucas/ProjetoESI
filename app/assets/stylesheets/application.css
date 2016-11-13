@@ -34,6 +34,13 @@ h1{
     font-weight: lighter;
 }
 
+h2{
+    font-size: 23px;
+    font-weight: normal;
+    font-family: Tahoma;
+    line-height: normal;
+}
+
 a{
     text-decoration: none;
     color: transparent;
@@ -582,6 +589,9 @@ fieldset{
 
 p{
    margin: 3;
+   text-align: justify;
+   text-indent: 40px;
+   
 }
 
 .homeImage {
@@ -604,11 +614,30 @@ p{
 }
 
 .descrHome2 {
-    color: #FFFFFF;
-    margin-top: 40px;
-    margin-right: 400px;
+    
+    margin-top: 15px;
+    margin-right: 450px;
+    margin-left: -150px;
     text-align: justify;
     text-indent: 40px;
+    color: #FFFFFF;
+}
+
+.descrHome3 {
+
+    margin-top: 60px;
+    margin-right: 450px;
+    margin-left: -400px;
+    text-align: justify;
+    text-indent: 40px;
+}
+
+.descrHome4 {
+    
+    margin: 40px 100px 0px 200px;
+    text-align: justify;
+    text-indent: 40px;
+    color: #FFFFFF;
 }
 
 
