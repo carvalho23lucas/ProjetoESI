@@ -8,9 +8,10 @@ Rails.application.routes.draw do
     post '/usuarios/new/update_cidades' => 'usuarios#update_cidades'
   
   # Rotas login
+  resources :login
+    post '/login/auth' => 'login#auth'
+  
   get 'login/login'
-  post 'login/login'
-
   get 'home/index'
   get 'about/about'
   get 'home/selectusertype'

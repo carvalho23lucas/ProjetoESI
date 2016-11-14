@@ -1,19 +1,21 @@
 %body
   .separador1
   %h1 Login
+  - if flash[:alert]
+    = "Login ou senha inválidos!"
   .separador2
   .separador1
   .separador1
   .separador1
   .separador1
-  %form{}
+  %form{ :controller => 'login', :action => 'auth', :method => 'post' }
     .categoriaForm
       .itemFormLogin
-        %label{:for => "nome", :class => "labelb"} E-mail
-        %input{:name => "nome", :type => "text", :value => "", :class => "inputb"}/
+        %label{:for => "email", :class => "labelb"} E-mail
+        %input{:name => "email", :type => "text", :value => "", :class => "inputb"}/
       .separador1
       .itemFormLogin
         %label{:for => "senha", :class => "labelb"} Senha
         %input{:name => "senha", :type => "password", :value => "", :class => "inputb"}/
       .separador1
-      %input{ :type => "submit" , :class => "buttonForm1", :value => "ENTRAR"} 
+      %input{ :type => "submit" , :class => "buttonForm1", :value => "ENTRAR"}
