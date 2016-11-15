@@ -5,7 +5,7 @@ $(document).ready ->
   $('#estado').change ->
     $.ajax
       type: 'POST'
-      url: '/usuarios/update_cidades'
+      url: '/instituicaos/update_cidades'
       data: estado_id: $('#estado').val()
       success: (data) ->
         $('#usuario_cidade_id').html data

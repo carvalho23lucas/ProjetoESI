@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Areaatuacao:
+  = @instituicao.areaAtuacao
+%p
+  %b Documento:
+  = @instituicao.documento
+%p
+  %b Nome:
+  = @instituicao.nome
+%p
+  %b Email:
+  = @instituicao.email
+%p
+  %b Codigo:
+  = @instituicao.codigo
+%p
+  %b Cidade:
+  = @instituicao.cidade
+
+= link_to 'Edit', edit_instituicao_path(@instituicao)
+\|
+= link_to 'Back', instituicaos_path

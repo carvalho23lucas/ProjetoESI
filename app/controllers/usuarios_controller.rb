@@ -15,17 +15,30 @@ class UsuariosController < ApplicationController
   # GET /usuarios/new
   def new
     @usuario = Usuario.new
+    @estados = Estado.all.order(:nome).map { |estado| [estado.sigla, estado.id]}.prepend(['Selecione um estado', 0])
+    @cidades = Cidade.where(:estado_id => 0).order(:nome).map { |cidade| [cidade.nome, cidade.id] }.prepend(['Selecione uma cidade', 0])
+  end
+
+  # GET /usuarios/cadastro/doador
+  def doador
+    @usuario = Usuario.new
+    @estados = Estado.all.order(:nome).map { |estado| [estado.sigla, estado.id]}.prepend(['Selecione um estado', 0])
+    @cidades = Cidade.where(:estado_id => 0).order(:nome).map { |cidade| [cidade.nome, cidade.id] }.prepend(['Selecione uma cidade', 0])
+    render 'usuarios/new'
+  end
+
+  # GET /usuarios/cadastro/empresadoadora
+  def empresadoadora
+    @usuario = Usuario.new(:isPJ => true)
     @estados = Estado.all.order(:nome).map { |estado| [estado.sigla, estado.id]}.prepend(['Selecione um estado.', 0])
     @cidades = Cidade.where(:estado_id => 0).order(:nome).map { |cidade| [cidade.nome, cidade.id] }.prepend(['Selecione uma cidade.', 0])
-  end
-  
-  def update_cidades
-    @cidades = Cidade.where(:estado_id => params[:estado_id]).order(:nome).map { |cidade| [cidade.nome, cidade.id] }.prepend(['Selecione uma cidade.', 0])
-    render partial: "cidades", locals: {cidades: @cidades}
+    render 'usuarios/new'
   end
 
   # GET /usuarios/1/edit
   def edit
+    @estados = Estado.all.order(:nome).map { |estado| [estado.sigla, estado.id]}.prepend(['Selecione um estado.', 0])
+    @cidades = Cidade.where(:estado_id => @usuario.cidade.estado.id).order(:nome).map { |cidade| [cidade.nome, cidade.id] }.prepend(['Selecione uma cidade.', 0])
   end
 
   # POST /usuarios
@@ -49,7 +62,7 @@ class UsuariosController < ApplicationController
   def update
     respond_to do |format|
       if @usuario.update(usuario_params)
-        format.html { redirect_to @usuario, notice: 'Usuario was successfully updated.' }
+        format.html { redirect_to @usuario, notice: 'Dados do usuário atualizados.' }
         format.json { render :show, status: :ok, location: @usuario }
       else
         format.html { render :edit }
@@ -58,12 +71,17 @@ class UsuariosController < ApplicationController
     end
   end
 
+  def update_cidades
+    @cidades = Cidade.where(:estado_id => params[:estado_id]).order(:nome).map { |cidade| [cidade.nome, cidade.id] }.prepend(['Selecione uma cidade', 0])
+    render partial: "cidades", locals: {cidades: @cidades}
+  end
+
   # DELETE /usuarios/1
   # DELETE /usuarios/1.json
   def destroy
     @usuario.destroy
     respond_to do |format|
-      format.html { redirect_to usuarios_url, notice: 'Usuario was successfully destroyed.' }
+      format.html { redirect_to usuarios_url, notice: 'Usuario deletado.' }
       format.json { head :no_content }
     end
   end

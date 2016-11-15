@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   root 'home#index'
+  resources :instituicaos
+  get '/usuarios/instituicaos/new' => 'instituicaos#index'
   
   # Rotas usuários
   resources :usuarios
     get '/usuarios/cadastro/doador' => 'usuarios#doador'
     get '/usuarios/cadastro/empresadoadora' => 'usuarios#empresadoadora'
-    post '/usuarios/new/update_cidades' => 'usuarios#update_cidades'
+    post '/cidades/new/update_cidades' => 'cidades#update_cidades'
   
   # Rotas login
   get 'login/login'

@@ -1,0 +1,31 @@
+= form_for @instituicao do |f|
+  - if @instituicao.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@instituicao.errors.count, "error")} prohibited this instituicao from being saved:"
+      %ul
+        - @instituicao.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :Área_de_atuação
+    = f.text_field :area_atuacaos
+  .field
+    = f.label :documento
+    = f.text_field :documento
+  .field
+    = f.label :nome
+    = f.text_field :nome
+  .field
+    = f.label :código
+    = f.text_field :codigo
+  .field
+    = f.label :cidade
+    = f.text_field :cidade
+  .field
+    = f.label :email
+    = f.email_field :email
+  .field
+    = f.label :senha
+    = f.password_field :senha
+  .actions
+    = f.submit 'Cadastrar'
