@@ -7,25 +7,16 @@
           %li= msg
 
   .field
-    = f.label :documento
+    = f.label :documento, @usuario.isPJ ? "CNPJ:" : "CPF:"
     = f.text_field :documento
   .field
     = f.label :nome
     = f.text_field :nome
   .field
     = f.label :email
-    = f.text_field :email
+    = f.email_field :email
   .field
     = f.label :senha
-    = f.text_field :senha
-  .field
-    = f.label :cidade
-    = f.text_field :cidade
-  .field
-    = f.label :isPJ
-    = f.check_box :isPJ
-  .field
-    = f.label :isInstituicao
-    = f.check_box :isInstituicao
+    = f.password_field :senha
   .actions
-    = f.submit 'Save'
+    = f.submit 'Salvar'
