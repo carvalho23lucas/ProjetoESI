@@ -4,7 +4,7 @@ Given(/^I am on the login page$/) do
 end
 
 When(/^I enter an e\-mail address$/) do
-  fill_in ‘nome’, :with => "emailparateste@teste.com"
+  fill_in 'email', :with => "emailparateste@teste.com"
 end
 
 When(/^I enter a password$/) do
