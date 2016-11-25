@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Categoria objetos:
+  = @objeto.categoria_objeto.nome
+%p
+  %b Nome:
+  = @objeto.nome
+%p
+  %b Unidade medida:
+  = @objeto.unidade_medida
+%p
+  %b Meta:
+  = @objeto.meta
+%p
+  %b Observacoes:
+  = @objeto.observacoes
+
+= link_to 'Edit', edit_objeto_path(@objeto)
+\|
+= link_to 'Back', objetos_path

@@ -10,25 +10,31 @@
   %body
     #header
       .logo
-        %img{:alt => "Logo", :border => "0", :height => "95", :src => "/images/logo1.png", :width => "95"}/
-      %a{:href => "/home/index"}
-        .linkheader
-          .buttonlink
-            HOME
+        %a{:href => "/home/index"}
+          %img{:alt => "Logo", :border => "0", :height => "95", :src => "/images/logo1.png", :width => "95"}/
+      -if !$isLogedIn || $isInstituicao
+        %a{:href => "/home/index"}
+          .linkheader
+            .buttonlink
+              HOME
+      -else
+        %a{:href => "/home/home"}
+          .linkheader
+            .buttonlink
+              DOAR
       %a{:href => "/about/about"}      
         .linkheader  
           .buttonlink
             SOBRE
       .logoTexto
         %img{:alt => "Logo", :border => "0", :height => "75", :src => "/images/logotexto.png"}/  
-      %a{:href => "/login/login"}
-        .loginheader
-          .buttonlink
-            LOGIN
-      %a{:href => "/home/selectusertype"}      
-        .loginheader  
-          .buttonlink
-            CADASTRE-SE
+      
+      
+      - if $isLogedIn 
+        = render "/layouts/user"
+      - else
+        = render "/layouts/loginB"
+
       
     #midsection
       .separador1

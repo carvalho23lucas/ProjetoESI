@@ -1,0 +1,14 @@
+%a{:href => "/usuarios/show"}
+  .usnameheader
+    .usnamelink
+      -if $userLogedIn == nil
+        -if $isInstituicao == true
+          = $instLogedIn.nome
+        -else
+          Não sei seu nome :(
+      -else
+        -if !$userLogedIn.isPJ?
+          Olá,
+          = $userLogedIn.nome.split().first
+        -else
+          = $userLogedIn.nome

@@ -1,32 +1,46 @@
+
 %p#notice= notice
+.separador1
+.separador1
+.separador
+.separador1
+%p
+  %h1 
+    = @usuario.nome
+%p
+  %h2
+    = @usuario.email
+.separador2
 %p
 - if @usuario.isPJ?
   %p
-    %b CNPJ:
-    = @usuario.documento
+    %h2 
+      CNPJ:
+      = @usuario.documento
 
 - if !@usuario.isPJ?
   %p
-    %b CPF:
-    = @usuario.documento
+    %h2 
+      CPF:
+      = @usuario.documento
 %p
-  %b Nome:
-  = @usuario.nome
-%p
-  %b Email:
-  = @usuario.email
-%p
-  %b UF:
-  = Estado.where(id: @usuario.cidade.estado.id).first.sigla
-%p
-  %b Cidade:
-  = @usuario.cidade.nome
-%p
-  %b Tipo:
-  = @usuario.isPJ ? "Empresa" : "Pessoa Física"
+  %h2
+    = @usuario.cidade.nome
+    = "-"
+    = Estado.where(id: @usuario.cidade.estado.id).first.sigla
 
 .separador2
-  %h3 Quer atualizar alguma informação?
-  %a{:href => edit_usuario_path(@usuario)}    
-    .buttonbig
-      .buttonlink EDITAR    
+.separador1
+.separador1
+%h3 Quer atualizar alguma informação?
+.separador1
+%a{:href => edit_usuario_path(@usuario)}    
+  .button2
+    .buttonlink EDITAR
+.separador1      
+.separador1
+
+%form{ :controller => 'usuarios', :action => 'logoff', :method => 'post' }
+  .categoriaForm
+    %input{ :type => "submit" , :class => "buttonForm1", :value => "SAIR"}
+  

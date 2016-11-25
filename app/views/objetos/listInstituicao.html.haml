@@ -1,0 +1,37 @@
+ 
+.separador1
+.h1
+  Objetos Disponíveis
+.separador1
+.separador1
+.separador2
+- @objetos.each do |objeto|
+  .itemObjeto
+    .itemObjetoIcone
+      -@imagem = "/images/catgs/catg" + objeto.categoria_objeto_id.to_s +  ".png"
+      %img{:alt => "Doador Pessoa", :src => @imagem, :width => "90px"}/
+    .itemObjetoNome
+      %h1
+        = objeto.nome
+      .h2 
+        = objeto.observacoes
+    .itemObjetoBotao
+      .buttonlink
+        EXCLUIR
+    .itemObjetoMeta
+      %h2
+        Instituição
+      .h3
+        Meta:
+        = objeto.meta 
+        = " "
+        = objeto.unidade_medida
+  .separador4
+.separador1
+.separador1
+%a{:href => "/home/home"} 
+  .button1
+    .buttonlink VOLTAR
+.separador1
+.separador1
+.separador2

@@ -10,6 +10,13 @@ class UsuariosController < ApplicationController
   # GET /usuarios/1
   # GET /usuarios/1.json
   def show
+    
+  end
+  
+  def logoff
+      $isLogedIn = false
+      $userLogedIn = nil
+      redirect_to "/home/index"
   end
 
   # GET /usuarios/new
@@ -89,11 +96,13 @@ class UsuariosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_usuario
-      @usuario = Usuario.find(params[:id])
+      @usuario = $userLogedIn
+      #@usuario = Usuario.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def usuario_params
       params.require(:usuario).permit(:documento, :nome, :email, :senha, :cidade_id, :isPJ, :isInstituicao)
     end
+
 end
