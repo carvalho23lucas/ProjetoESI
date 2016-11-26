@@ -22,7 +22,8 @@ Rails.application.routes.draw do
   get 'home/cadastrousuariodoador'
   get 'about/about'
   get 'home/selectusertype'
-  get 'contato/contato'
+  
+  post 'home/search' =>'home#search'  
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
