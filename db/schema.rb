@@ -51,6 +51,20 @@ ActiveRecord::Schema.define(version: 20161118020015) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.index ["categoria_objeto_id"], name: "index_objetos_on_categoria_objeto_id", using: :btree
+  end  
+    
+  create_table "instituicaos", force: :cascade do |t|
+    t.integer  "area_atuacao_id"
+    t.string   "documento"
+    t.string   "nome"
+    t.string   "email"
+    t.string   "senha"
+    t.string   "codigo"
+    t.integer  "cidade_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["area_atuacao_id"], name: "index_instituicaos_on_area_atuacao_id", using: :btree
+    t.index ["cidade_id"], name: "index_instituicaos_on_cidade_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -85,5 +99,7 @@ ActiveRecord::Schema.define(version: 20161118020015) do
 
   add_foreign_key "cidades", "estados"
   add_foreign_key "objetos", "categoria_objetos"
+  add_foreign_key "instituicaos", "area_atuacaos"
+  add_foreign_key "instituicaos", "cidades"
   add_foreign_key "usuarios", "cidades"
 end

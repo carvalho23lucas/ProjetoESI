@@ -373,6 +373,7 @@ a:hover{
     background-color: transparent;
 }
 .grupo2 {
+    text-align: center;
     display: flex;
 }
 .logo {
