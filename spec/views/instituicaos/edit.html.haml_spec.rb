@@ -2,14 +2,19 @@ require 'rails_helper'
 
 RSpec.describe "instituicaos/edit", type: :view do
   before(:each) do
+    cidade = Cidade.new(:nome => "Guarulhos", :estado => Estado.new(:sigla => "SP", :nome => "São Paulo"))
+    area_atuacao = AreaAtuacao.new(:nome => "Orfanato")
+    @estados = [cidade.estado.nome, cidade.estado_id]
+    @cidades = [cidade.nome, cidade.id]
+    @areas_atuacao = [area_atuacao.nome, area_atuacao.id]
     @instituicao = assign(:instituicao, Instituicao.create!(
-      #:area_atuacao => nil,
       :documento => "MyString",
       :nome => "MyString",
       :email => "MyString",
       :senha => "MyString",
       :codigo => "MyString",
-      :cidade => nil
+      :area_atuacao => area_atuacao,
+      :cidade => cidade
     ))
   end
 
@@ -18,7 +23,7 @@ RSpec.describe "instituicaos/edit", type: :view do
 
     assert_select "form[action=?][method=?]", instituicao_path(@instituicao), "post" do
 
-      assert_select "input#instituicao_area_atuacao_id[name=?]", "instituicao[area_atuacao_id]"
+      #assert_select "input#instituicao_area_atuacao[name=?]", "instituicao[area_atuacao]"
 
       assert_select "input#instituicao_documento[name=?]", "instituicao[documento]"
 
@@ -30,7 +35,7 @@ RSpec.describe "instituicaos/edit", type: :view do
 
       assert_select "input#instituicao_codigo[name=?]", "instituicao[codigo]"
 
-      assert_select "input#instituicao_cidade_id[name=?]", "instituicao[cidade_id]"
+      #assert_select "input#instituicao_cidade[name=?]", "instituicao[cidade]"
     end
   end
 end
