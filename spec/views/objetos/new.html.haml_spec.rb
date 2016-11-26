@@ -2,12 +2,15 @@ require 'rails_helper'
 
 RSpec.describe "objetos/new", type: :view do
   before(:each) do
+    categoria = CategoriaObjeto.new(:nome => "Alimentos")
+    #@categorias = CategoriaObjeto.all.order(:nome).map { |categoria| [categoria.nome, categoria.id]}.prepend(['Selecione uma categoria', 0])
+    @categorias = [categoria.nome, categoria.id]
     assign(:objeto, Objeto.new(
-      :categoria_objetos => nil,
-      :nome => "MyString",
-      :unidade_medida => "MyString",
-      :meta => 1,
-      :observacoes => "MyString"
+      :categoria_objeto => categoria,
+      :nome => "Chocolate",
+      :unidade_medida => "Kilos",
+      :meta => 10,
+      :observacoes => "Não"
     ))
   end
 
@@ -16,7 +19,7 @@ RSpec.describe "objetos/new", type: :view do
 
     assert_select "form[action=?][method=?]", objetos_path, "post" do
 
-      assert_select "input#objeto_categoria_objetos_id[name=?]", "objeto[categoria_objetos_id]"
+      assert_select "select#objeto_categoria_objeto_id[name=?]", "objeto[categoria_objeto_id]"
 
       assert_select "input#objeto_nome[name=?]", "objeto[nome]"
 
