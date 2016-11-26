@@ -107,5 +107,4 @@ class UsuariosController < ApplicationController
     def usuario_params
       params.require(:usuario).permit(:documento, :nome, :email, :senha, :cidade_id, :isPJ, :isInstituicao)
     end
-
 end

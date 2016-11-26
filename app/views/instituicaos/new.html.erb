@@ -1,0 +1,54 @@
+<%= form_for @instituicao, url: {action: "create"} do |f| %>
+    <div class="grupo2">
+        <h2>Cadastro de Insituição </h2>
+    </div>
+    <% if @instituicao.errors.any? %>
+        <div id="error_explanation">
+            <h2> <%= pluralize(@instituicao.errors.count, "error") %> prohibited this instituicao from being saved: </h2>
+            <%= @instituicao.errors.full_messages.each do |msg| %>
+            <ul>
+              <li></li> <%= msg %> </li>
+            </ul>
+            <% end %>
+        </div>
+    <% end %>
+     <div class="grupo2">
+        <%= f.label :email, "E-mail:" %>
+        <%= f.text_field :email %>
+    </div>
+    <br>
+    <div class="grupo2">
+        <%= f.label :senha, "Senha: " %>
+        <%= f.text_field :senha %>
+    </div>
+    <br>
+    <div class="grupo2">
+        <%= f.label :documento, "Documento:" %>
+        <%= f.text_field :documento, :required => true %>
+    </div>
+    <br>
+    <div class="grupo2">
+        <%= f.label :area_atuacao_id, "Área de atuação:" %>
+        <%= f.text_field :area_atuacao_id, :required => true %>
+    </div>
+    <br>
+    <div class="grupo2">
+        <%= f.label :nome, "Nome:" %>
+        <%= f.text_field :nome %>
+    </div>
+    <br>
+    <div class="grupo2">
+        <%= label "estado", "Estado:"%>
+        <%= select_tag "estado", options_for_select(@estados) %>
+    </div>
+    <br>
+    <div class="grupo2" id="div_cidades">
+        <%= f.label :cidade_id, "Cidade: " %>
+        <%= f.select :cidade_id, options_for_select(@cidades) %>
+    </div>
+    <br>
+    
+    <div class="buttonlink">
+        <%= f.submit "Cadastrar" %><br>
+    </div>
+<% end %>

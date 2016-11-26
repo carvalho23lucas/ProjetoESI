@@ -373,7 +373,10 @@ a:hover{
     background-color: transparent;
 }
 .grupo2 {
+<<<<<<< HEAD
+=======
     text-align: center;
+>>>>>>> cadastro_instituicao
     display: flex;
 }
 .logo {

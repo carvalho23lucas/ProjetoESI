@@ -34,27 +34,7 @@ h1{
     font-weight: lighter;
 }
 
-.h1{
-    font-size: xx-large;
-    font-stretch: semi-expanded;
-    font-weight: lighter;
-}
-
-
-h2{
-    font-size: 23px;
-    font-weight: normal;
-    font-family: Tahoma;
-    line-height: normal;
-}
-
 a{
-    text-decoration: none;
-    color: transparent;
-    background-color: transparent;
-}
-
-a:hover{
     text-decoration: none;
     color: transparent;
     background-color: transparent;
@@ -195,130 +175,11 @@ a:hover{
     background: #64607a;
 }
 
-.button1 {
- background-color: #4f4b69;
- color: #ffffff;
- text-align: center;
- font-size: large;
- vertical-align: middle;
- width: 130px;
- height: 45px;
- border-style: solid;
- border-width: thin;
- border-color: #888888; 
- margin:0 auto;
- 
- display: -webkit-flex;
- display: flex;
- -webkit-align-items: center;
- align-items: center;
- -webkit-justify-content: center;
- justify-content: center;
-
- transition: background .25s ease-in-out;
- -moz-transition: background .25s ease-in-out;
- -webkit-transition: background .25s ease-in-out;
- 
-
- -moz-border-radius:7px;
- -webkit-border-radius:7px;
- border-radius:7px;
-}
-
-.button1:hover{
-    background: #64607a;
-}
-
-.button2 {
- background-color: #fcfcfc;
- color: #4f4b69;
- text-align: center;
- font-size: large;
- vertical-align: middle;
- width: 130px;
- height: 45px;
- border-style: solid;
- border-width: thin;
- border-color: #888888; 
- margin:0 auto;
- 
- display: -webkit-flex;
- display: flex;
- -webkit-align-items: center;
- align-items: center;
- -webkit-justify-content: center;
- justify-content: center;
-
- transition: background .25s ease-in-out;
- -moz-transition: background .25s ease-in-out;
- -webkit-transition: background .25s ease-in-out;
- 
-
- -moz-border-radius:7px;
- -webkit-border-radius:7px;
- border-radius:7px;
-}
-
-.button2:hover{
-    background: #f3f2f7;
-}
-
-
 .buttonlink{
   text-align: center;
   vertical-align: middle;
   
   font-size: medium;
-  
-  
-  margin:0px;
-}
-
-.usnameheader {
- background-color: #fcfcfc;
- color: #4f4b69;
- 
- text-align: center;
- vertical-align: middle;
- 
- width: 165px;
- height: 52px;
- 
- float: right;
- margin: 6px;
- margin-right: 40px;
- margin-top: 19px;
- 
- border-style: solid;
- border-width: thin;
- border-color: #d6d6d6;
-
- display: -webkit-flex;
- display: flex;
- -webkit-align-items: center;
- align-items: center;
- -webkit-justify-content: center;
- justify-content: center;
- 
- transition: background .25s ease-in-out;
- -moz-transition: background .25s ease-in-out;
- -webkit-transition: background .25s ease-in-out;
-  
- -moz-border-radius:7px;
- -webkit-border-radius:7px;
- border-radius:7px;
- 
-}
- 
- .usnameheader:hover{
-    background: #f3f2f7;
-}
-
-.usnamelink{
-  text-align: center;
-  vertical-align: middle;
-  
-  font-size: large;
   
   
   margin:0px;
@@ -372,10 +233,13 @@ a:hover{
     color: transparent;
     background-color: transparent;
 }
+
 .grupo2 {
     text-align: center;
     display: flex;
 }
+
+
 .logo {
  margin-left: 16px;
  margin-right: 30px;
@@ -504,7 +368,6 @@ fieldset{
     height: 18px;
 }
 
-
 .separador2{
     border: solid;
     border-width: thin;
@@ -513,13 +376,6 @@ fieldset{
 
 .separador3{    
     width: 100px;
-}
-
-.separador4{   
-    border: solid;
-    border-width: thin;
-    border-color: #eaeaea;
-    height: 6px;
 }
 
 .titulo{
@@ -588,9 +444,9 @@ fieldset{
     
 }
 
-.inputa{
+.input{
     
-    font-size: 15px;     
+    font-size: 22px;     
     padding: 5px;     
     border: 1.5px solid;     
     width: 300px;     
@@ -606,7 +462,7 @@ fieldset{
     border-radius:7px;
 }
 
-.inputa:hover{
+.input:hover{
     background: #f3f2f7;
 }
 
@@ -617,30 +473,6 @@ fieldset{
     padding: 5px;     
     border: 1.5px solid;     
     width: 300px;     
-    color: #797979;     
-    border-color: #bababa;
-     
-    transition: background .25s ease-in-out;
-    -moz-transition: background .25s ease-in-out;
-    -webkit-transition: background .25s ease-in-out;
-  
-    -moz-border-radius:7px;
-    -webkit-border-radius:7px;
-    border-radius:7px;
-    
-}
-
-.inputb:hover{
-    background: #f3f2f7;
-}
-
-.inputc{
-    
-    margin: 0 auto;
-    font-size: 20px;     
-    padding: 5px;     
-    border: 1.5px solid;     
-    width: 360px;     
     color: #797979;     
     border-color: #bababa;
      
@@ -750,9 +582,6 @@ fieldset{
 
 p{
    margin: 3;
-   text-align: justify;
-   text-indent: 40px;
-   
 }
 
 .homeImage {
@@ -769,112 +598,19 @@ p{
 
 .descrHome1 {
 
-    margin: 100px;
-    text-align: justify;
-    text-indent: 40px;
+    margin: 20px;
+    max-width: 400px;
 }
 
 .descrHome2 {
     
-    margin-top: 15px;
-    margin-right: 450px;
-    margin-left: -150px;
-    text-align: justify;
-    text-indent: 40px;
     color: #FFFFFF;
+    margin: 20px;
+    max-width: 400px;
 }
 
-.descrHome3 {
 
-    margin-top: 60px;
-    margin-right: 450px;
-    margin-left: -400px;
-    text-align: justify;
-    text-indent: 40px;
-}
 
-.descrHome4 {
-    
-    margin: 40px 100px 0px 200px;
-    text-align: justify;
-    text-indent: 40px;
-    color: #FFFFFF;
-}
 
-.itemObjeto{
-    
-    height:100px;
-    width: 100%;
-}
-
-.itemObjetoNome{
-    
-    text-align: left;
-    float: left;
-    margin-left:16px;  
-    
-}
-.itemObjetoNome .h2{
-    
-    text-align: left;
-    font-size: medium;
-    font-weight: lighter;
-    
-}
-
-.itemObjetoIcone{
-    float: left;
-    margin-left:10px;  
-    margin-top:8px;
-    
-    height:100px;
-    width: 100px;
-}
-
-.itemObjetoMeta{
-    
-    text-align: right;
-    font-weight: lighter;
-    font-size: larger;
-    
-    float: right;
-    margin-left:0px;  
-    margin-right: 30px;
-}
-
-.itemObjetoMeta .h3{
-    font-size: medium;
-    font-weight: lighter;
-}
-
-.itemObjetoBotao{
-    background-color: #4f4b69;
-    color: #ffffff;
- 
-    text-align: center;
-    vertical-align: middle;
- 
-    height:100px;
-    width: 130px;
-     
-    float: right;
-   
-   display: -webkit-flex;
- display: flex;
- -webkit-align-items: center;
- align-items: center;
- -webkit-justify-content: center;
- justify-content: center;
-    
-    transition: background .25s ease-in-out;
- -moz-transition: background .25s ease-in-out;
- -webkit-transition: background .25s ease-in-out;
- 
-    
-}
-
-.itemObjetoBotao:hover{
-    background: #64607a;
-}
 
  
