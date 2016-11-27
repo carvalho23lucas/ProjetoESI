@@ -9,7 +9,8 @@ Rails.application.routes.draw do
     post '/usuarios/logoff' => 'usuarios#logoff'
     get '/usuarios/cadastro/doador' => 'usuarios#doador'
     get '/usuarios/cadastro/empresadoadora' => 'usuarios#empresadoadora'
-    post '/cidades/new/update_cidades' => 'cidades#update_cidades'
+    post '/usuarios/update_cidades' => 'usuarios#update_cidades'
+    post '/cidades/update_cidades' => 'cidades#update_cidades'
   
     #post '/usuarios/update_cidades' => 'usuarios#update_cidades'
 
@@ -18,8 +19,10 @@ Rails.application.routes.draw do
     post '/login/auth' => 'login#auth'
   
   resources :layouts
-    
-    
+  
+  resources :doacaos  
+  get '/doacoes/cadastro' => 'doacaos#new'
+  
   get 'login/login'
   get 'home/index'
   get 'home/home'
