@@ -16,6 +16,8 @@ class UsuariosController < ApplicationController
   def logoff
       $isLogedIn = false
       $userLogedIn = nil
+      $isInstituicao = false
+      $instLogedin = nil
       redirect_to "/home/index"
   end
 

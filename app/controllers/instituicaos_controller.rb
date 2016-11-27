@@ -16,7 +16,7 @@ class InstituicaosController < ApplicationController
   def new
     @instituicao = Instituicao.new
     @estados = Estado.all.order(:nome).map { |estado| [estado.sigla, estado.id]}.prepend(['Selecione um estado.', 0])
-    @cidades = Cidade.where(:estado_id => 0).order(:nome).map { |cidade| [cidade.nome, cidade.id] }.prepend(['Selecione uma cidade.', 0])
+    @cidades = Cidade.all.order(:nome).map { |cidade| [cidade.nome, cidade.id] }.prepend(['Selecione uma cidade.', 0])
   end
 
   # GET /instituicaos/1/edit

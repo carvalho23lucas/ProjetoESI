@@ -1,24 +1,49 @@
-%p#notice= notice
+.separador1
+.separador1
+.separador
+.separador1
+%p
+  %h1 
+    = @instituicao.nome
+%p
+  %h2
+    = @instituicao.email
+.separador2
+%p
+  %h2 
+    CNPJ:
+    = @instituicao.documento
+    %p
+  %h2 
+    Area de Atuação: 
+    = @instituicao.area_atuacao
+%p
+  %h2
+    = @instituicao.cidade.nome
+    = "-"
+    = Estado.where(id: @instituicao.cidade.estado.id).first.sigla
 
-<!--%p-->
-<!--  %b Areaatuacao:-->
-<!--  = @instituicao.area_atuacao-->
-%p
-  %b Documento:
-  = @instituicao.documento
-%p
-  %b Nome:
-  = @instituicao.nome
-%p
-  %b Email:
-  = @instituicao.email
-%p
-  %b Codigo:
-  = @instituicao.codigo
-<!--%p-->
-<!--  %b Cidade:-->
-<!--  = @instituicao.cidade-->
-
-= link_to 'Edit', edit_instituicao_path(@instituicao)
-\|
-= link_to 'Back', instituicaos_path
+.separador2
+.separador1
+%h3 Objetos cadastrados
+%a{:href => "/objetos/new"}    
+  .button1
+    .buttonlink ADICIONAR
+%form{ :controller => 'usuarios', :action => 'listObjetos', :method => 'post' }
+  .categoriaForm
+    %input{ :type => "submit" , :class => "buttonForm1", :value => "LISTAR"}
+.separador1
+.separador2
+.separador1
+%h3 Quer atualizar alguma informação?
+.separador1
+%a{:href => edit_usuario_path(@instituicao)}    
+  .button2
+    .buttonlink EDITAR
+.separador1      
+.separador2
+.separador1
+%form{ :controller => 'usuarios', :action => 'logoff', :method => 'post' }
+  .categoriaForm
+    %input{ :type => "submit" , :class => "buttonForm1", :value => "SAIR"}
+  

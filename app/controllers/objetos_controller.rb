@@ -24,8 +24,15 @@ class ObjetosController < ApplicationController
 
   # POST /objetos
   def create
+    #teste#
+    #if $instLogedin == nil
+    #  $instLogedin = Instituicao.all.first
+    #end
+    #teste#
+    
     @objeto = Objeto.new(objeto_params)
     @categorias = CategoriaObjeto.all.order(:nome).map { |categoria| [categoria.nome, categoria.id]}.prepend(['Selecione uma categoria', 0])
+    @objeto.instituicao = $instLogedin
   
     respond_to do |format|
       if @objeto.save

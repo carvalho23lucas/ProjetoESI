@@ -15,9 +15,16 @@
         = objeto.nome
       .h2 
         = objeto.observacoes
-    .itemObjetoBotao
-      .buttonlink
-        DOAR
+    -if $isInstituicao
+      %a{:href => edit_objeto_path(@usuario)}    
+        .itemObjetoBotao
+          .buttonlink
+            EXCLUIR
+    -else
+      %a{:href => new_doacao_path(objeto)}  
+        .itemObjetoBotao
+          .buttonlink
+            DOAR
     .itemObjetoMeta
       %h2
         Instituição
