@@ -1,0 +1,48 @@
+.separador1
+.separador1
+.separador1
+%h1 Objeto cadastrado com sucesso!
+.separador2
+
+%h2 Agora é só aguardar as doações
+.separador1
+.separador1
+
+.separador
+
+
+.itemObjeto
+  .itemObjetoIcone
+    -@imagem = "/images/catgs/catg" + @objeto.categoria_objeto_id.to_s +  ".png"
+    %img{:alt => "Doador Pessoa", :src => @imagem, :width => "90px"}/
+  .itemObjetoNome
+    %h1
+      = @objeto.nome
+    .h2 
+      = @objeto.observacoes
+  .itemObjetoBotao
+    .buttonlink
+      
+  .itemObjetoMeta
+    %h2
+      Instituição
+    .h3
+      Meta:
+      = @objeto.meta 
+      = " "
+      = @objeto.unidade_medida
+.separador2
+.separador1
+.separador1
+.separador1
+.separador1
+
+%h2 Gostaria de cadastrar mais algum objeto?
+%a{:href => "/objetos/new"}    
+  .buttonbig
+    .buttonlink CADASTRAR
+.separador1        
+%a{:href => "/home/home"}    
+  .buttonbig
+    .buttonlink VOLTAR
+

@@ -1,0 +1,30 @@
+= form_for @objeto, :url => {:action => 'create'} do |f|
+  - if @objeto.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@objeto.errors.count, "error")} prohibited this objeto from being saved:"
+      %ul
+        - @objeto.errors.full_messages.each do |msg|
+          %li= msg
+  .form 
+    %fieldset
+      .categoriaForm     
+        %h2 Dados do Objeto
+        .separador
+        .itemForm
+          = f.label :categoria_objeto_id, :class => "labela"
+          = f.select :categoria_objeto_id, options_for_select(@categorias), :class => "inputa" 
+        .itemForm
+          = f.label :nome, :class => "labela"
+          = f.text_field :nome, :class => "inputa"
+        .itemForm
+          = f.label :unidade_medida, :class => "labela"
+          = f.text_field :unidade_medida, :class => "inputa"
+        .itemForm
+          = f.label :meta, :class => "labela"
+          = f.number_field :meta, :class => "inputa"
+        .itemForm
+          = f.label :observacoes, :class => "labela"
+          = f.text_field :observacoes, :class => "inputa"
+        .separador2
+        %div
+          = f.submit 'Save', :class => "buttonForm"

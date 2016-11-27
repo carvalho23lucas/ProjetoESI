@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161016235136) do
+ActiveRecord::Schema.define(version: 20161118020015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,31 @@ ActiveRecord::Schema.define(version: 20161016235136) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "instituicaos", force: :cascade do |t|
+    t.integer  "area_atuacao_id"
+    t.string   "documento"
+    t.string   "nome"
+    t.string   "email"
+    t.string   "senha"
+    t.string   "codigo"
+    t.integer  "cidade_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["area_atuacao_id"], name: "index_instituicaos_on_area_atuacao_id", using: :btree
+    t.index ["cidade_id"], name: "index_instituicaos_on_cidade_id", using: :btree
+  end
+
+  create_table "objetos", force: :cascade do |t|
+    t.integer  "categoria_objeto_id"
+    t.string   "nome"
+    t.string   "unidade_medida"
+    t.integer  "meta"
+    t.string   "observacoes"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["categoria_objeto_id"], name: "index_objetos_on_categoria_objeto_id", using: :btree
+  end
+
   create_table "usuarios", force: :cascade do |t|
     t.string   "documento"
     t.string   "nome"
@@ -56,5 +81,8 @@ ActiveRecord::Schema.define(version: 20161016235136) do
   end
 
   add_foreign_key "cidades", "estados"
+  add_foreign_key "instituicaos", "area_atuacaos"
+  add_foreign_key "instituicaos", "cidades"
+  add_foreign_key "objetos", "categoria_objetos"
   add_foreign_key "usuarios", "cidades"
 end

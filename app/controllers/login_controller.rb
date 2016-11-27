@@ -11,7 +11,9 @@ class LoginController < ApplicationController
   def auth
     user = Usuario.find_by(email: params[:email])
     if user && user.senha == params[:senha]
-      redirect_to "/home/index"
+      $isLogedIn = true
+      $userLogedIn = user
+      redirect_to "/home/home"
     else
       flash.now[:alert] = ''
       render action: 'login'

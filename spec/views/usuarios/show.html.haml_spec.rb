@@ -14,11 +14,10 @@ RSpec.describe "usuarios/show", type: :view do
 
   it "renders attributes in <p>" do
     render
-    expect(rendered).to match(/Documento/)
-    expect(rendered).to match(/Nome/)
-    expect(rendered).to match(/Email/)
-    expect(rendered).to match(/SP/)
-    expect(rendered).to match(/Guarulhos/)
-    expect(rendered).to match(/Pessoa Física/)
+    expect(rendered).to match("Documento")
+    expect(rendered).to match("Nome")
+    expect(rendered).to match("Email")
+    expect(rendered).to match("SP")
+    expect(rendered).to match("Guarulhos")
   end
 end
