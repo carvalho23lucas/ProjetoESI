@@ -12,6 +12,14 @@ class InstituicaosController < ApplicationController
   def show
   end
 
+  def logoff
+      $isLogedIn = false
+      $userLogedIn = nil
+      $isInstituicao = false
+      $instLogedin = nil
+      redirect_to "/home/index"
+  end
+
   # GET /instituicaos/new
   def new
     @instituicao = Instituicao.new
@@ -71,7 +79,11 @@ class InstituicaosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_instituicao
-      @instituicao = Instituicao.find(params[:id])
+      if $isLogedIn
+        @instituicao = $instLogedin
+      else
+        @instituicao = Instituicao.find(params[:id])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

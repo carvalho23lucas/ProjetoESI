@@ -32,7 +32,7 @@ class ObjetosController < ApplicationController
     
     @objeto = Objeto.new(objeto_params)
     @categorias = CategoriaObjeto.all.order(:nome).map { |categoria| [categoria.nome, categoria.id]}.prepend(['Selecione uma categoria', 0])
-    @objeto.instituicao = $instLogedin
+    @objeto.instituicao_id = $instLogedin_id
   
     respond_to do |format|
       if @objeto.save

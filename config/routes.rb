@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :objetos
   root 'home#index'
   resources :instituicaos
+  post '/instituicaos/logoff' => 'instituicaos#logoff'
   get '/usuarios/instituicaos/new' => 'instituicaos#index'
   
   # Rotas usuários

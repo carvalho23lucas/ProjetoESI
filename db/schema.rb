@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20161126235409) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.index ["categoria_objeto_id"], name: "index_objetos_on_categoria_objeto_id", using: :btree
+    t.index ["instituicao_id"], name: "index_objetos_on_instituicao_id", using: :btree
   end
 
   create_table "usuarios", force: :cascade do |t|
@@ -98,5 +99,6 @@ ActiveRecord::Schema.define(version: 20161126235409) do
   add_foreign_key "instituicaos", "area_atuacaos"
   add_foreign_key "instituicaos", "cidades"
   add_foreign_key "objetos", "categoria_objetos"
+  add_foreign_key "objetos", "instituicaos"
   add_foreign_key "usuarios", "cidades"
 end

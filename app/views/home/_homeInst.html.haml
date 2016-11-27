@@ -1,0 +1,20 @@
+-@instituicao = $instLogedin
+.separador1
+.separador1
+.separador
+.separador1
+%p
+  %h1 
+    = @instituicao.nome
+.separador2
+.separador1
+%h3 Objetos cadastrados
+%a{:href => "/objetos/new"}    
+  .button1
+    .buttonlink ADICIONAR
+%form{ :controller => 'usuarios', :action => 'listObjetos', :method => 'post' }
+  .categoriaForm
+    %input{ :type => "submit" , :class => "buttonForm1", :value => "LISTAR"}
+.separador1
+.separador2
+.separador1

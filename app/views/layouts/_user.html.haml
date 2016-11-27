@@ -1,14 +1,20 @@
-%a{:href => "/usuarios/show"}
-  .usnameheader
-    .usnamelink
-      -if $userLogedIn == nil
-        -if $isInstituicao == true
-          = $instLogedin.nome
+-if $isInstituicao
+  %a{:href => "/instituicaos/show"}
+    .usnameheader
+      .usnamelink
+        = $instLogedin.nome
+-else
+  %a{:href => "/usuarios/show"}
+    .usnameheader
+      .usnamelink
+        -if $userLogedIn == nil
+          -if $isInstituicao == true
+            = $instLogedin.nome
+          -else
+            Não sei seu nome :(
         -else
-          Não sei seu nome :(
-      -else
-        -if !$userLogedIn.isPJ?
-          Olá,
-          = $userLogedIn.nome.split().first
-        -else
-          = $userLogedIn.nome
+          -if !$userLogedIn.isPJ?
+            Olá,
+            = $userLogedIn.nome.split().first
+          -else
+            = $userLogedIn.nome
