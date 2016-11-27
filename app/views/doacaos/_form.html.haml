@@ -1,0 +1,16 @@
+= form_for @doacao do |f|
+  - if @doacao.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@doacao.errors.count, "error")} prohibited this doacao from being saved:"
+      %ul
+        - @doacao.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :quantidade
+    = f.number_field :quantidade
+  .field
+    = f.label :observacoes
+    = f.text_field :observacoes
+  .actions
+    = f.submit 'Doar'
