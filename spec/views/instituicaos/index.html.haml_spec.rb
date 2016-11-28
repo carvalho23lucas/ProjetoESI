@@ -26,12 +26,8 @@ RSpec.describe "instituicaos/index", type: :view do
 
   it "renders a list of instituicaos" do
     render
-    #assert_select "tr>td", :text => "#<AreaAtuacao:0x00000007197718>".to_s, :count => 2
     assert_select "tr>td", :text => "Documento".to_s, :count => 2
     assert_select "tr>td", :text => "Nome".to_s, :count => 2
     assert_select "tr>td", :text => "Email".to_s, :count => 2
-    assert_select "tr>td", :text => "Senha".to_s, :count => 2
-    assert_select "tr>td", :text => "Codigo".to_s, :count => 2
-    #assert_select "tr>td", :text => "#<AreaAtuacao:0x00000007197718>".to_s, :count => 2
   end
 end

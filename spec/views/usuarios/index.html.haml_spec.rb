@@ -10,8 +10,7 @@ RSpec.describe "usuarios/index", type: :view do
         :email => "Email",
         :senha => "Senha",
         :cidade => cidade,
-        :isPJ => false,
-        :isInstituicao => true
+        :isPJ => false
       ),
       Usuario.create!(
         :documento => "Documento",
@@ -19,8 +18,7 @@ RSpec.describe "usuarios/index", type: :view do
         :email => "Email",
         :senha => "Senha",
         :cidade => cidade,
-        :isPJ => false,
-        :isInstituicao => true
+        :isPJ => false
       )
     ])
   end
@@ -32,6 +30,5 @@ RSpec.describe "usuarios/index", type: :view do
     assert_select "tr>td", :text => "Email".to_s, :count => 2
     assert_select "tr>td", :text => cidade.nome.to_s, :count => 2
     assert_select "tr>td", :text => "Não".to_s, :count => 2
-    assert_select "tr>td", :text => "Sim".to_s, :count => 2
   end
 end

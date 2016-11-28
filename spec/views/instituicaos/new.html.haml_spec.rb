@@ -22,8 +22,8 @@ RSpec.describe "instituicaos/new", type: :view do
     render
 
     assert_select "form[action=?][method=?]", instituicaos_path, "post" do
-
-      assert_select "input#instituicao_area_atuacao_id[name=?]", "instituicao[area_atuacao_id]"
+      
+      assert_select "select#instituicao_area_atuacao_id[name=?]", "instituicao[area_atuacao_id]"
 
       assert_select "input#instituicao_documento[name=?]", "instituicao[documento]"
 

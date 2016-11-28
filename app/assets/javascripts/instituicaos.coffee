@@ -8,7 +8,7 @@ $(document).ready ->
       url: '/instituicaos/update_cidades'
       data: estado_id: $('#estado').val()
       success: (data) ->
-        $('#usuario_cidade_id').html data
+        $('#instituicao_cidade_id').html data
         return
     return
   return

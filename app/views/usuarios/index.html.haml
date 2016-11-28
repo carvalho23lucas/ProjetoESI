@@ -8,7 +8,6 @@
       %th Email
       %th Cidade
       %th Empresa
-      %th Instituicao
       %th
       %th
       %th
@@ -21,7 +20,6 @@
         %td= usuario.email
         %td= usuario.cidade.nome
         %td= usuario.isPJ ? "Sim" : "Não"
-        %td= usuario.isInstituicao ? "Sim" : "Não"
         %td= link_to 'Ver', usuario
         %td= link_to 'Editar', edit_usuario_path(usuario)
         %td= link_to 'Excluir', usuario, :method => :delete, :data => { :confirm => 'Confirmar exclusão?' }

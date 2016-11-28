@@ -14,12 +14,12 @@
     <% end %>
      <div class="grupo2">
         <%= f.label :email, "E-mail:" %>
-        <%= f.text_field :email %>
+        <%= f.email_field :email %>
     </div>
     <br>
     <div class="grupo2">
         <%= f.label :senha, "Senha: " %>
-        <%= f.text_field :senha %>
+        <%= f.password_field :senha %>
     </div>
     <br>
     <div class="grupo2">
@@ -29,7 +29,7 @@
     <br>
     <div class="grupo2">
         <%= f.label :area_atuacao_id, "Área de atuação:" %>
-        <%= f.text_field :area_atuacao_id, :required => true %>
+        <%= f.select :area_atuacao_id, options_for_select(@areas_atuacao), required: true %>
     </div>
     <br>
     <div class="grupo2">
@@ -39,12 +39,12 @@
     <br>
     <div class="grupo2">
         <%= label "estado", "Estado:"%>
-        <%= select_tag "estado", options_for_select(@estados) %>
+        <%= select_tag "estado", options_for_select(@estados), required: true %>
     </div>
     <br>
     <div class="grupo2" id="div_cidades">
         <%= f.label :cidade_id, "Cidade: " %>
-        <%= f.select :cidade_id, options_for_select(@cidades) %>
+        <%= f.select :cidade_id, options_for_select(@cidades), required: true %>
     </div>
     <br>
     

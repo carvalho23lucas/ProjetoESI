@@ -7,8 +7,6 @@
       %th Documento
       %th Nome
       %th Email
-      %th Senha
-      %th Codigo
       %th Cidade
       %th
       %th
@@ -17,13 +15,11 @@
   %tbody
     - @instituicaos.each do |instituicao|
       %tr
-        %td= instituicao.area_atuacao
+        %td= instituicao.area_atuacao.nome
         %td= instituicao.documento
         %td= instituicao.nome
         %td= instituicao.email
-        %td= instituicao.senha
-        %td= instituicao.codigo
-        %td= instituicao.cidade
+        %td= instituicao.cidade.nome
         %td= link_to 'Show', instituicao
         %td= link_to 'Edit', edit_instituicao_path(instituicao)
         %td= link_to 'Destroy', instituicao, :method => :delete, :data => { :confirm => 'Are you sure?' }
