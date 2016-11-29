@@ -62,6 +62,7 @@ class InstituicaosController < ApplicationController
   
   def update_cidades
     @cidades = get_lista_cidades(params[:estado_id] == '' ? 0 : params[:estado_id])
+    @areas_atuacao = get_lista_areas_atuacao
     render partial: "/cidades", locals: {cidades: @cidades}
   end
 
@@ -86,17 +87,5 @@ class InstituicaosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def instituicao_params
       params.require(:instituicao).permit(:area_atuacao_id, :documento, :nome, :email, :senha, :codigo, :cidade_id)
-    end
-    
-    def get_lista_areas_atuacao
-      return AreaAtuacao.all.order(:nome).map { |area| [area.nome, area.id]}.prepend(['Selecione uma área de atuação', ''])
-    end
-    
-    def get_lista_estados
-      return Estado.all.order(:nome).map { |estado| [estado.sigla, estado.id]}.prepend(['Selecione um estado', ''])
-    end
-    
-    def get_lista_cidades(estado_id)
-      return Cidade.where(:estado_id => estado_id).order(:nome).map { |cidade| [cidade.nome, cidade.id] }.prepend(['Selecione uma cidade', ''])
     end
 end
