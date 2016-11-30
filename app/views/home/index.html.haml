@@ -23,16 +23,16 @@
     .homeImage
     .descrHome4
       %h2 As instituições são responsáveis por trabalhos importantes de solidariedade, e você ajuda-as, fazendo sua parte.
-
-  .pum
-    %h1="Gostou?"
-    %br
-    %a{:href => "/objetos/new"}    
-      .buttonbig
-        .buttonlink CADASTRE-SE
-    %br
-    %br
-    %br
+  -if !$isLogedIn
+    .pum
+      %h1="Gostou?"
+      %br
+      %a{:href => "/objetos/new"}    
+        .buttonbig
+          .buttonlink CADASTRE-SE
+      %br
+      %br
+      %br
     
 <!-- pra fazer o hello world http://www.jacksonbicalho.com.br/cotidiano/criando-a-minha-pagina-home-no-rails/ http://glaucocustodio.com/2012/10/06/primeiro-projeto-com-ruby-on-rails/ -->
 <!-- pra fazer o haml  funcionar http://haml.info/docs/yardoc/file.REFERENCE.html#using_haml https://github.com/indirect/haml-rails-->

@@ -42,7 +42,7 @@ class InstituicaosController < ApplicationController
 
     respond_to do |format|
       if @instituicao.save
-        format.html { redirect_to @instituicao, notice: 'Instituição cadastrada.' }
+        format.html { redirect_to "/login/login" }
       else
         format.html { render :new }
       end

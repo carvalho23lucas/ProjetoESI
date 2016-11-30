@@ -51,7 +51,7 @@ class UsuariosController < ApplicationController
 
     respond_to do |format|
       if @usuario.save
-        format.html { redirect_to @usuario, notice: 'Usuário cadastrado.' }
+        format.html { redirect_to "/login/login"}
       else
         format.html { render :new }
       end
