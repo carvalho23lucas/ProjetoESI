@@ -17,6 +17,7 @@
   <tr><td> Hellyan Alves de Oliveira      </td><td> 8801853 </td></tr>
   <tr><td> Ingrid Machado Santos Garib    </td><td> 8935988 </td></tr>
   <tr><td> Lucas da Costa Carvalho        </td><td> 9019320 </td></tr>
+  <tr><td> Redher Wetzl Oliveira          </td><td> 8095575 </td></tr>
 </table>
 <br />
 
