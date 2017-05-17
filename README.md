@@ -13,7 +13,6 @@
 <table>
   <tr><td> Bruno Salerno Rocha            </td><td> 9004525 </td></tr>
   <tr><td> David Henrique Regis Rodrigues </td><td> 9004633 </td></tr>
-  <tr><td> Gabriel Zoneti Figueira Peres  </td><td> 9004470 </td></tr>
   <tr><td> Hellyan Alves de Oliveira      </td><td> 8801853 </td></tr>
   <tr><td> Ingrid Machado Santos Garib    </td><td> 8935988 </td></tr>
   <tr><td> Lucas da Costa Carvalho        </td><td> 9019320 </td></tr>
