@@ -13,6 +13,12 @@ class InstituicaosController < ApplicationController
   # GET /instituicaos/1
   def show
   end
+  
+  # GET instituicaos/listObjetos/1
+  def listObjetos
+    @instituicao = Instituicao.find(params[:id])
+    @objetos = Objeto.where(:instituicao_id => params[:id])
+  end
 
   def logoff
       $isLogedIn = false
