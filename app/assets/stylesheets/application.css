@@ -724,6 +724,16 @@ fieldset{
     background: #64607a;
 }
 
+.buttonWhite {
+    background-color: white;
+    border-color: #4f4b69;
+    color: #4f4b69;
+    width: 190px;
+}
+.buttonWhite:hover {
+    background-color: aliceblue;
+}
+
 #footer {
   background-color: #ffffff; 
   color: #4f4b69;
@@ -878,3 +888,12 @@ p{
 }
 
  
+.show-instituicao {
+    padding: 6px;
+}
+.show-instituicao:hover {
+    color: white;
+}
+.show-instituicao:visited {
+    color: white;
+}

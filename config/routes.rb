@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   resources :objetos
   root 'home#index'
-  resources :instituicaos
+  resources :instituicaos do
+    collection do
+      get 'details'
+    end
+  end
   post '/instituicaos/logoff' => 'instituicaos#logoff'
   
   # Rotas usuários

@@ -1,5 +1,5 @@
 class SelectUserTypeController < ApplicationController
   def index
-    @welcome = 'hello'
+    @welcome = ''
   end
 end

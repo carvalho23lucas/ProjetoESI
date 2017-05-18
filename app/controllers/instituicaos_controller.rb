@@ -6,6 +6,10 @@ class InstituicaosController < ApplicationController
     @instituicaos = Instituicao.all
   end
 
+  # GET /instituicaos/details
+  def details
+  end
+
   # GET /instituicaos/1
   def show
   end
@@ -83,9 +87,7 @@ class InstituicaosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_instituicao
-      if $isLogedIn
-        @instituicao = $instLogedin
-      else
+      if(params.has_key?(:id) && params[:id] != "details")
         @instituicao = Instituicao.find(params[:id])
       end
     end
