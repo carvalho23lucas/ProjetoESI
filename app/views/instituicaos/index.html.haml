@@ -1,10 +1,10 @@
-%h1 Cadastro de instituições
+%h1 Lista de Instituições
 
 %table
   %thead
     %tr
       %th Área de atuação
-      %th Documento
+      %th CNPJ
       %th Nome
       %th Email
       %th Cidade
@@ -14,16 +14,12 @@
 
   %tbody
     - @instituicaos.each do |instituicao|
-      %tr
+      %tr{:style => 'height: 40px;'}
         %td= instituicao.area_atuacao.nome
         %td= instituicao.documento
         %td= instituicao.nome
         %td= instituicao.email
         %td= instituicao.cidade.nome
-        %td= link_to 'Show', instituicao
-        %td= link_to 'Edit', edit_instituicao_path(instituicao)
-        %td= link_to 'Destroy', instituicao, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Show', instituicao, {:class => 'show-instituicao buttonForm1'}
 
 %br
-
-= link_to 'Cadastrar Instituição', new_instituicao_path
