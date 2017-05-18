@@ -12,9 +12,10 @@
 %a{:href => "/objetos/new"}    
   .button1
     .buttonlink ADICIONAR
-%form{ :controller => 'usuarios', :action => 'listObjetos', :method => 'post' }
-  .categoriaForm
-    %input{ :type => "submit" , :class => "buttonForm1", :value => "LISTAR"}
+-@href = "/instituicaos/listObjetos/" + @instituicao.id.to_s
+%a{:href => @href}    
+  .button1
+    .buttonlink LISTAR
 .separador1
 .separador2
 .separador1
