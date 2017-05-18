@@ -1,0 +1,47 @@
+.separador1
+.separador1
+.separador
+.separador1
+%p
+  %h1 
+    = @instituicao.nome
+%p
+  = @instituicao.email
+  = " | CNPJ:" 
+  = @instituicao.documento
+  = "| Área de Atuação: "
+  = @instituicao.area_atuacao.nome
+  = "|"
+  = @instituicao.cidade.nome
+  = "-"
+  = Estado.where(id: @instituicao.cidade.estado.id).first.sigla
+
+.separador1
+.separador2
+- @objetos.each do |objeto|
+  .itemObjeto
+    .itemObjetoIcone
+      -@imagem = "/images/catgs/catg" + objeto.categoria_objeto_id.to_s +  ".png"
+      %img{:alt => "Doador Pessoa", :src => @imagem, :width => "90px"}/
+    .itemObjetoNome
+      %h1
+        = objeto.nome
+      .h2 
+        = objeto.observacoes
+    -if !$isInstituicao
+      %a{:href => new_doacao_path(objeto)}  
+        .itemObjetoBotao
+          .buttonlink
+            DOAR
+    .itemObjetoMeta
+      %h3
+        Meta:
+        = objeto.meta 
+        = " "
+        = objeto.unidade_medida
+  .separador4
+.separador1
+.separador1
+
+.separador2
+  

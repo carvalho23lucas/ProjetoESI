@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get 'home/cadastrousuariodoador'
   get 'about/about'
   get 'home/selectusertype'
+  get 'instituicaos/listObjetos/:id' => 'instituicaos#listObjetos'
   
   post 'home/search' =>'home#search'  
 
