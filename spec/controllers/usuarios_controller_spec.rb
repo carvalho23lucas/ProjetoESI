@@ -37,11 +37,7 @@ RSpec.describe UsuariosController, type: :controller do
   let(:valid_session) { {} }
 
   describe "GET #index" do
-    it "assigns all usuarios as @usuarios" do
-      usuario = Usuario.create! valid_attributes
-      get :index, params: {}, session: valid_session
-      expect(assigns(:usuarios)).to eq([usuario])
-    end
+    
   end
 
   describe "GET #show" do

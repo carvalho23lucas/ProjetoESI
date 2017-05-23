@@ -4,7 +4,12 @@ class DoacaosController < ApplicationController
   # GET /doacaos
 
   def index
-    @doacaos = Doacao.all
+    if $isInstituicao 
+      @instituicao = Instituicao.find_by(email: "asd@asd")
+      @doacaos = Doacao.joins(:objeto).where("objetos.instituicao_id = ?", @instituicao.id).all
+    else
+      @doacaos = nil
+    end  
   end
 
   # GET /doacaos/1

@@ -16,7 +16,7 @@
       - @doacaos.each do |doacao|
         %tr
           %td= doacao.usuario.nome
-          %td= doacao.objeto
+          %td= doacao.objeto.nome
           %td= doacao.quantidade
           %td= doacao.observacoes
           %td= link_to 'Show', doacao
