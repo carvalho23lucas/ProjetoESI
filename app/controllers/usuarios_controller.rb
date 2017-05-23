@@ -3,7 +3,7 @@ class UsuariosController < ApplicationController
 
   # GET /usuarios
   def index
-    @usuarios = Usuario.all
+    @usuarios = nil
   end
 
   # GET /usuarios/1

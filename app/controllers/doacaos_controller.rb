@@ -25,11 +25,7 @@ class DoacaosController < ApplicationController
   # POST /doacaos
 
   def create
-    @usuario = $userLogedIn
-    @objeto = Objeto.new
-    @quantidade = 0
-    @observacoes = ""
-    @doacao = Doacao.new(:usuario=>@usuario,:objeto=>@objeto,:quantidade=>@quantidade,:observacoes=>@observacoes)
+    @doacao = Doacao.new(doacao_params)
     respond_to do |format|
       if @doacao.save
         format.html { redirect_to @doacao, notice: 'Doacao was successfully created.' }

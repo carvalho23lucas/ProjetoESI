@@ -1,27 +1,28 @@
-%h1 Listing doacaos
-
-%table
-  %thead
-    %tr
-      %th Usuario
-      %th Objeto
-      %th Quantidade
-      %th Observacoes
-      %th
-      %th
-      %th
-
-  %tbody
-    - @doacaos.each do |doacao|
+- if @doacaos 
+  %h1 Doações Recebidas
+  
+  %table
+    %thead
       %tr
-        %td= doacao.usuario
-        %td= doacao.objeto
-        %td= doacao.quantidade
-        %td= doacao.observacoes
-        %td= link_to 'Show', doacao
-        %td= link_to 'Edit', edit_doacao_path(doacao)
-        %td= link_to 'Destroy', doacao, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Doacao', new_doacao_path
+        %th Usuario
+        %th Objeto
+        %th Quantidade
+        %th Observacoes
+        %th
+        %th
+        %th
+  
+    %tbody
+      - @doacaos.each do |doacao|
+        %tr
+          %td= doacao.usuario.nome
+          %td= doacao.objeto
+          %td= doacao.quantidade
+          %td= doacao.observacoes
+          %td= link_to 'Show', doacao
+          %td= link_to 'Edit', edit_doacao_path(doacao)
+          %td= link_to 'Destroy', doacao, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  
+  %br
+  
+  = link_to 'New Doacao', new_doacao_path
