@@ -34,7 +34,6 @@
       .logoTexto
         %img{:alt => "Logo", :border => "0", :height => "75", :src => "/images/logotexto.png"}/  
       
-      = session[:isLogedIn] & "1"
       - if session[:isLogedIn] 
         = render "/layouts/user"
       - else
