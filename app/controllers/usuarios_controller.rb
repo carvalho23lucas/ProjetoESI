@@ -12,10 +12,10 @@ class UsuariosController < ApplicationController
   end
   
   def logoff
-      $isLogedIn = false
-      $userLogedIn = nil
-      $isInstituicao = false
-      $instLogedin = nil
+      session[:isLogedIn] = false
+      session[:userLogedIn] = nil
+      session[:isInstituicao] = false
+      session[:instLogedin] = nil
       redirect_to "/home/index"
   end
 
@@ -85,8 +85,8 @@ class UsuariosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_usuario
-      if $isLogedIn
-        @usuario = $userLogedIn
+      if session[:isLogedIn]
+        @usuario = Usuario.find(session[:userLogedIn])
       else
         @usuario = Usuario.find(params[:id])
       end

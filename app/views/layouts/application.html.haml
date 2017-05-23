@@ -12,12 +12,12 @@
       .logo
         %a{:href => "/home/index"}
           %img{:alt => "Logo", :border => "0", :height => "95", :src => "/images/logo1.png", :width => "95"}/
-      -if !$isLogedIn
+      -if !session[:isLogedIn]
         %a{:href => "/home/index"}
           .linkheader
             .buttonlink
               HOME
-      -elsif $isInstituicao
+      -elsif session[:isInstituicao]
         %a{:href => "/home/home"}
           .linkheader
             .buttonlink
@@ -34,8 +34,8 @@
       .logoTexto
         %img{:alt => "Logo", :border => "0", :height => "75", :src => "/images/logotexto.png"}/  
       
-      
-      - if $isLogedIn 
+      = session[:isLogedIn] & "1"
+      - if session[:isLogedIn] 
         = render "/layouts/user"
       - else
         = render "/layouts/loginB"

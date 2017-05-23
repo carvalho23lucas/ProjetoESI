@@ -23,7 +23,7 @@
     .homeImage
     .descrHome4
       %h2 As instituições são responsáveis por trabalhos importantes de solidariedade, e você ajuda-as, fazendo sua parte.
-  -if !$isLogedIn
+  -if !session[:isLogedIn]
     .pum
       %h1="Gostou?"
       %br

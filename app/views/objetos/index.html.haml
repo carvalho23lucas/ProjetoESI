@@ -15,7 +15,7 @@
         = objeto.nome
       .h2 
         = objeto.observacoes
-    -if $isInstituicao
+    -if session[:isInstituicao]
       %a{:href => edit_objeto_path(@usuario)}    
         .itemObjetoBotao
           .buttonlink

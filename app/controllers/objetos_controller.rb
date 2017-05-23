@@ -25,16 +25,16 @@ class ObjetosController < ApplicationController
   # POST /objetos
   def create
     #teste#
-    #if $instLogedin == nil
-    #  $instLogedin = Instituicao.all.first
+    #if Instituicao.find(session[:instLogedin]) == nil
+    #  Instituicao.find(session[:instLogedin]) = Instituicao.all.first
     #end
     #teste#
     
     @objeto = Objeto.new(objeto_params)
     @categorias = CategoriaObjeto.all.order(:nome).map { |categoria| [categoria.nome, categoria.id]}.prepend(['Selecione uma categoria', 0])
    
-    if($instLogedin)
-      @objeto.instituicao_id = $instLogedin.id
+    if(Instituicao.find(session[:instLogedin]))
+      @objeto.instituicao_id = Instituicao.find(session[:instLogedin]).id
     else
       @objeto.instituicao_id = 0 
     end

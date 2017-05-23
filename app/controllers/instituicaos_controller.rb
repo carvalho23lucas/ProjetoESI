@@ -21,10 +21,10 @@ class InstituicaosController < ApplicationController
   end
 
   def logoff
-      $isLogedIn = false
-      $userLogedIn = nil
-      $isInstituicao = false
-      $instLogedin = nil
+      session[:isLogedIn] = false
+      session[:userLogedIn] = nil
+      session[:isInstituicao] = false
+      session[:instLogedin] = nil
       redirect_to "/home/index"
   end
 

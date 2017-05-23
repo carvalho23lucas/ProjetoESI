@@ -28,7 +28,7 @@
         = objeto.nome
       .h2 
         = objeto.observacoes
-    -if !$isInstituicao
+    -if !session[:isInstituicao]
       %a{:href => new_doacao_path(objeto)}  
         .itemObjetoBotao
           .buttonlink

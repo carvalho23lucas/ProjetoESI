@@ -4,7 +4,7 @@ class DoacaosController < ApplicationController
   # GET /doacaos
 
   def index
-    if $isInstituicao 
+    if session[:isInstituicao] 
       @instituicao = Instituicao.find_by(email: "asd@asd")
       @doacaos = Doacao.joins(:objeto).where("objetos.instituicao_id = ?", @instituicao.id).all
     else

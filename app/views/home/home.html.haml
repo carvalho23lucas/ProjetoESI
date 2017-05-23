@@ -1,4 +1,4 @@
--if $isInstituicao
+-if session[:isInstituicao]
  = render "/home/homeInst"
 -else
  = render "/home/homeDoa"

@@ -3,8 +3,8 @@
 .separador
 .separador1
 
-- if $isLogedIn
-  - @instituicao = $instLogedin
+- if session[:isLogedIn]
+  - @instituicao = Instituicao.find(session[:instLogedin])
   
 %p
   %h1 

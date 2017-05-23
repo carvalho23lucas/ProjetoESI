@@ -14,7 +14,7 @@
     = f.label :observacoes
     = f.text_field :observacoes
   .field
-    = f.hidden_field :usuario_id, :value => Usuario.find_by(email: $userLogedIn.email).id
+    = f.hidden_field :usuario_id, :value => Usuario.find_by(email: Usuario.find(session[:userLogedIn]).email).id
   .field
     = f.hidden_field :objeto_id, :value => params[:objeto_id]
   .actions

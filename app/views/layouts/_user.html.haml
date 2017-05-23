@@ -1,20 +1,20 @@
--if $isInstituicao
+-if session[:isInstituicao]
   %a{:href => "/instituicaos/details"}
     .usnameheader
       .usnamelink
-        = $instLogedin.nome
+        = Instituicao.find(session[:instLogedin]).nome
 -else
   %a{:href => "/usuarios/show"}
     .usnameheader
       .usnamelink
-        -if $userLogedIn == nil
-          -if $isInstituicao == true
-            = $instLogedin.nome
+        -if Usuario.find(session[:userLogedIn]) == nil
+          -if session[:isInstituicao] == true
+            = Instituicao.find(session[:instLogedin]).nome
           -else
             Não sei seu nome :(
         -else
-          -if !$userLogedIn.isPJ?
+          -if !Usuario.find(session[:userLogedIn]).isPJ?
             Olá,
-            = $userLogedIn.nome.split().first
+            = Usuario.find(session[:userLogedIn]).nome.split().first
           -else
-            = $userLogedIn.nome
+            = Usuario.find(session[:userLogedIn]).nome

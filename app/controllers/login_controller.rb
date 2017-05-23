@@ -12,13 +12,13 @@ class LoginController < ApplicationController
     user = Usuario.find_by(email: params[:email])
     inst = Instituicao.find_by(email: params[:email])
     if user && user.senha == params[:senha]
-      $isLogedIn = true
-      $userLogedIn = user
+      session[:isLogedIn] = true
+      session[:userLogedIn] = user.id
       redirect_to "/home/home"
     elsif inst && inst.senha == params[:senha]
-      $isLogedIn = true
-      $isInstituicao = true
-      $instLogedin = inst
+      session[:isLogedIn] = true
+      session[:isInstituicao] = true
+      session[:instLogedin] = inst.id
       redirect_to "/home/home"
     else  
       flash.now[:alert] = ''
