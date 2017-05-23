@@ -33,7 +33,7 @@ class ObjetosController < ApplicationController
     @objeto = Objeto.new(objeto_params)
     @categorias = CategoriaObjeto.all.order(:nome).map { |categoria| [categoria.nome, categoria.id]}.prepend(['Selecione uma categoria', 0])
    
-    if(Instituicao.find(session[:instLogedin]))
+    if(session[:instLogedin])
       @objeto.instituicao_id = Instituicao.find(session[:instLogedin]).id
     else
       @objeto.instituicao_id = 0 
