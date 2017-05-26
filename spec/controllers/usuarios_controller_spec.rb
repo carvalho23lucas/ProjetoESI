@@ -55,14 +55,6 @@ RSpec.describe UsuariosController, type: :controller do
     end
   end
 
-  describe "GET #edit" do
-    it "assigns the requested usuario as @usuario" do
-      usuario = Usuario.create! valid_attributes
-      get :edit, params: {id: usuario.to_param}, session: valid_session
-      expect(assigns(:usuario)).to eq(usuario)
-    end
-  end
-
   describe "POST #create" do
     context "with valid params" do
       it "creates a new Usuario" do
