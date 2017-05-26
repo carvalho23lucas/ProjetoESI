@@ -25,7 +25,8 @@
       
   .itemObjetoMeta
     %h2
-      Instituição
+      = Instituicao.find(session[:instLogedin]).nome
+  
     .h3
       Meta:
       = @objeto.meta 

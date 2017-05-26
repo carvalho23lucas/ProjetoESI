@@ -20,7 +20,7 @@
         DOAR
     .itemObjetoMeta
       %h2
-        Instituição
+        = Instituicao.find(objeto.instituicao_id).nome
       .h3
         Meta:
         = objeto.meta 

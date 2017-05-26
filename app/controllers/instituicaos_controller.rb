@@ -49,7 +49,7 @@ class InstituicaosController < ApplicationController
     @areas_atuacao = get_lista_areas_atuacao
     @estados = get_lista_estados
     @cidades = get_lista_cidades(@instituicao.cidade.estado.id)
-
+    
     respond_to do |format|
       if @instituicao.save
         format.html { redirect_to "/login/login" }
@@ -58,6 +58,7 @@ class InstituicaosController < ApplicationController
       end
     end
   end
+ 
 
   # PATCH/PUT /instituicaos/1
   def update

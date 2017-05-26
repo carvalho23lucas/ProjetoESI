@@ -2,24 +2,58 @@
 .separador1
 .separador
 .separador1
+.itemObjeto
+  .itemObjetoIcone
+    -@imagem = "/images/logoinst.png"
+    %img{:alt => "Doador Pessoa", :src => @imagem, :width => "90px"}/
+  .itemObjetoNome
+    %h1
+      = @instituicao.nome
+    .h2 
+      = @instituicao.area_atuacao.nome
+  .itemObjetoMeta
+    %h2   
+      = @instituicao.email
+    .h3
+      = @instituicao.cidade.nome
+      = "-"
+      = Estado.where(id: @instituicao.cidade.estado.id).first.sigla
+
+.separador1
+.separador1
+.separador
 
 %p
-  %h1 
-    = @instituicao.nome
-%p
   %h2
-    = @instituicao.email
+    Objetos aceitos
 .separador2
-%p
-  %h2 
-    CNPJ:
-    = @instituicao.documento
-    %p
-  %h2 
-    Area de Atuação: 
-    = @instituicao.area_atuacao.nome
-%p
-  %h2
-    = @instituicao.cidade.nome
-    = "-"
-    = Estado.where(id: @instituicao.cidade.estado.id).first.sigla
+- @objetos = Objeto.where(instituicao_id: @instituicao.id)
+- @objetos.each do |objeto|
+  .itemObjeto
+    .itemObjetoIcone
+      -@imagem = "/images/catgs/catg" + objeto.categoria_objeto_id.to_s +  ".png"
+      %img{:alt => "Doador Pessoa", :src => @imagem, :width => "90px"}/
+    .itemObjetoNome
+      %h1
+        = objeto.nome
+      .h2 
+        = objeto.observacoes
+    -if session[:isInstituicao]
+      %a{:href => edit_objeto_path(@usuario)}    
+        .itemObjetoBotao
+          .buttonlink
+            EXCLUIR
+    -else
+      %a{:href => new_doacao_path(:objeto_id => objeto)}  
+        .itemObjetoBotao
+          .buttonlink
+            DOAR
+    .itemObjetoMeta
+      %h2
+        Meta:
+        = objeto.meta 
+        = " "
+        = objeto.unidade_medida
+  .separador4
+.separador1
+.separador1

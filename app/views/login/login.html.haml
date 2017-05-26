@@ -1,11 +1,11 @@
 %body
   .separador1
   %h1 Login
-  - if flash[:alert]
-    = "Login ou senha inválidos!"
   .separador2
   .separador1
   .separador1
+  - if flash[:alert]
+    %h3 Login ou senha inválidos!
   .separador1
   .separador1
   %form{ :controller => 'login', :action => 'auth', :method => 'post' }

@@ -5,27 +5,34 @@
       %ul
         - @instituicao.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label :Área_de_atuação
-    = f.text_field :area_atuacao
-  .field
-    = f.label :documento
-    = f.text_field :documento
-  .field
-    = f.label :nome
-    = f.text_field :nome
-  .field
-    = f.label :código
-    = f.text_field :codigo
-  .field
-    = f.label :cidade
-    = f.text_field :cidade
-  .field
-    = f.label :email
-    = f.email_field :email
-  .field
-    = f.label :senha
-    = f.password_field :senha
-  .actions
-    = f.submit 'Cadastrar'
+  .form 
+    %fieldset
+      .categoriaForm     
+        %h2 Dados da Instituição
+        .separador
+        .itemForm
+          = f.label :documento, "CNPJ",  :class => "labela"
+          = f.text_field :documento, :class => "inputa"
+        .itemForm
+          = f.label :nome, :class => "labela"
+          = f.text_field :nome, :class => "inputa"
+        .itemForm
+          = f.label :email, "E-mail", :class => "labela"
+          = f.email_field :email, :class => "inputa"
+        .itemForm
+          = f.label :senha, :class => "labela"
+          = f.password_field :senha, :class => "inputa"
+        .itemForm
+          = label "cfsenha", "Confirmar senha",:class => "labela"
+          %input{:name => "cfsenha", :type => "password", :value => "", :class => "inputa"}/
+        .itemForm
+          = f.label :area_atuacao_id, "Area de atuação", :class => "labela"
+          = f.select :area_atuacao_id, options_for_select(@areas_atuacao), :html => "inputa" 
+        .itemForm
+          = label "estado","Estado", :class => "labela"
+          = select_tag "estado", options_for_select(@estados), :class => "inputa" 
+        .itemForm
+          = f.label :cidade_id, :class => "labela"
+          = f.select :cidade_id, options_for_select(@cidades), :class => "inputa" 
+        %div
+          = f.submit 'Finalizar', :class => "buttonForm"

@@ -1,25 +1,36 @@
-%h1 Lista de Instituições
+.separador1
+.h1 Lista de Instituições
 
-%table
-  %thead
-    %tr
-      %th Área de atuação
-      %th CNPJ
-      %th Nome
-      %th Email
-      %th Cidade
-      %th
-      %th
-      %th
-
-  %tbody
-    - @instituicaos.each do |instituicao|
-      %tr{:style => 'height: 40px;'}
-        %td= instituicao.area_atuacao.nome
-        %td= instituicao.documento
-        %td= instituicao.nome
-        %td= instituicao.email
-        %td= instituicao.cidade.nome
-        %td= link_to 'Show', instituicao, {:class => 'show-instituicao buttonForm1'}
-
-%br
+.separador1
+.separador1
+.separador
+- @instituicaos.each do |instituicao|
+  .itemObjeto
+    .itemObjetoIcone
+      -@imagem = "/images/logoinst.png"
+      %img{:alt => "Doador Pessoa", :src => @imagem, :width => "90px"}/
+    .itemObjetoNome
+      %h1
+        = instituicao.nome
+      .h2 
+        = instituicao.area_atuacao.nome
+    %a{:href => "instituicaos/" + instituicao.id.to_s}    
+      .itemObjetoBotao
+        .buttonlink
+          VER
+    .itemObjetoMeta
+      %h2   
+        = instituicao.email
+      .h3
+        = instituicao.cidade.nome
+        = "-"
+        = Estado.where(id: instituicao.cidade.estado.id).first.sigla
+  .separador4
+.separador1
+.separador1
+%a{:href => "/home/home"} 
+  .button1
+    .buttonlink VOLTAR
+.separador1
+.separador1
+.separador2

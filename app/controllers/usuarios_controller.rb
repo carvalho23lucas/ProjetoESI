@@ -21,7 +21,7 @@ class UsuariosController < ApplicationController
 
   # GET /usuarios/new
   def new
-    @usuario = Usuario.new
+    @usuario = Usuario.new 
     @estados = get_lista_estados
     @cidades = get_lista_cidades(0)
   end
