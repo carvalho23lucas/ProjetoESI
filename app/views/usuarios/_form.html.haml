@@ -32,6 +32,6 @@
           = select_tag "estado", options_for_select(@estados), :class => "inputa" 
         .itemForm
           = f.label :cidade_id, :class => "labela"
-          = f.select :cidade_id, options_for_select(@cidades), :class => "inputa" 
-        %div
+          = f.select :cidade_id, options_for_select(@cidades), {}, { :class => "inputa" }
+        %div.div-submit-button
           = f.submit 'Finalizar', :class => "buttonForm"

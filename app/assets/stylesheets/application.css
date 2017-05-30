@@ -262,7 +262,10 @@ a:hover{
 .button2:hover{
     background: #f3f2f7;
 }
-
+.inline-button {
+    display: inline-block;
+    line-height: 45px;
+}
 
 .buttonlink{
   text-align: center;
@@ -596,7 +599,7 @@ fieldset{
     width: 300px;     
     color: #797979;     
     border-color: #bababa;
-     
+    box-sizing: border-box;
     transition: background .25s ease-in-out;
     -moz-transition: background .25s ease-in-out;
     -webkit-transition: background .25s ease-in-out;
@@ -658,11 +661,15 @@ fieldset{
     background: #f3f2f7;
 }
 
+.div-submit-button {
+    width: 100%;
+    text-align: center;
+}
 .buttonForm{    
     
     background-color: #4f4b69;
     
-    float: right;
+    *float: right;
     
     margin-left:15px;  
     margin-top: 20px;

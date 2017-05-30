@@ -27,12 +27,12 @@
           %input{:name => "cfsenha", :type => "password", :value => "", :class => "inputa"}/
         .itemForm
           = f.label :area_atuacao_id, "Area de atuação", :class => "labela"
-          = f.select :area_atuacao_id, options_for_select(@areas_atuacao), :html => "inputa" 
+          = f.select :area_atuacao_id, options_for_select(@areas_atuacao), {}, { :class => "inputa" }
         .itemForm
           = label "estado","Estado", :class => "labela"
           = select_tag "estado", options_for_select(@estados), :class => "inputa" 
         .itemForm
           = f.label :cidade_id, :class => "labela"
-          = f.select :cidade_id, options_for_select(@cidades), :class => "inputa" 
-        %div
+          = f.select :cidade_id, options_for_select(@cidades), {}, { :class => "inputa" }
+        %div.div-submit-button
           = f.submit 'Finalizar', :class => "buttonForm"
