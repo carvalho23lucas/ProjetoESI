@@ -5,6 +5,9 @@
       %ul
         - @usuario.errors.full_messages.each do |msg|
           %li= msg
+  
+  - if flash[:alert]
+    %h2= flash[:alert]
 
   .form 
     %fieldset

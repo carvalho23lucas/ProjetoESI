@@ -48,12 +48,25 @@ class UsuariosController < ApplicationController
   # POST /usuarios
   def create
     @usuario = Usuario.new(usuario_params)
-
     respond_to do |format|
-      if @usuario.save
-        format.html { redirect_to "/login/login"}
-      else
-        format.html { render :new }
+      if(Usuario.exists?(email: @usuario.email) || Instituicao.exists?(email:  @usuario.email))
+        flash.now[:alert]="E-mail já cadastrado"
+        new
+        format.html { render 'usuarios/new'}
+      else 
+        if(Usuario.exists?(documento: @usuario.documento))
+          flash.now[:alert]=@usuario.isPJ ? "CNPJ" : "CPF" + " já cadastrado"
+          new
+          format.html { render 'usuarios/new'}
+        else
+          if @usuario.save
+            session[:isLogedIn] = true
+            session[:userLogedIn] = @usuario.id
+            format.html { redirect_to @usuario, notice: 'Cadastro realizado com sucesso!'}
+          else
+            format.html { render :new }
+          end
+        end
       end
     end
   end

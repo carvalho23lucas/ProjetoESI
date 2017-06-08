@@ -1,3 +1,4 @@
-%h1 Editar dados do usuario
-
-= render 'form'
+if session[:isLogedIn] = true
+    %h1 Editar dados do usuario
+    
+    = render 'form'

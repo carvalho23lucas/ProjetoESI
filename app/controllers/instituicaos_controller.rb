@@ -52,7 +52,10 @@ class InstituicaosController < ApplicationController
     
     respond_to do |format|
       if @instituicao.save
-        format.html { redirect_to "/login/login" }
+        session[:isLogedIn] = true
+        session[:isInstituicao] = true
+        session[:instLogedin] = @instituicao.id
+        format.html { redirect_to @instituicao, notice: 'Cadastro realizado com sucesso!' }
       else
         format.html { render :new }
       end
