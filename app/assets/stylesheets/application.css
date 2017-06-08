@@ -848,6 +848,8 @@ p{
     overflow-y: hidden;
     text-overflow: ellipsis;
     
+    height: 30px;
+    
 }
 
 
@@ -858,6 +860,8 @@ p{
     
     line-height: 30px;
     text-overflow: ellipsis;
+    
+    height: 30px;
    
 }
 
@@ -889,12 +893,15 @@ p{
     
     overflow: hidden;
     text-overflow: ellipsis;
+    
+    height: 30px;
 }
 
 .itemObjetoMeta h2{
     
     overflow: hidden;
     text-overflow: ellipsis;
+    
    
 }
 
