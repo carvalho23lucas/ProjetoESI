@@ -395,6 +395,12 @@ a:hover{
    left: 50%;
 }
 
+@media (max-width: 1300px) {
+    .logoTexto{
+        display: none
+    }
+}
+
 .footerTexto {
    color: #4f4b69;
    position: absolute;
@@ -822,14 +828,30 @@ p{
     text-align: left;
     float: left;
     margin-left:16px;  
+    width: 300px;
     
 }
+
 .itemObjetoNome .h2{
     
     text-align: left;
     font-size: medium;
     font-weight: lighter;
     
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    
+}
+
+
+.itemObjetoNome h1{
+    
+    overflow: hidden;
+    *overflow-y: visible;
+    
+    line-height: 30px;
+    text-overflow: ellipsis;
+   
 }
 
 .itemObjetoIcone{
@@ -850,11 +872,23 @@ p{
     float: right;
     margin-left:0px;  
     margin-right: 30px;
+    
+    width: 200px;
 }
 
 .itemObjetoMeta .h3{
     font-size: medium;
     font-weight: lighter;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.itemObjetoMeta h2{
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+   
 }
 
 .itemObjetoBotao{
