@@ -28,13 +28,13 @@
           = f.password_field :senha, :class => "inputa"
         .itemForm
           = label "cfsenha", "Confirmar senha",:class => "labela"
-          %input{:name => "cfsenha", :type => "password", :value => "", :class => "inputa"}/
+          %input{:name => "cfsenha", :type => "password", :value => "", :class => "inputa"}
           = f.hidden_field :isPJ, :value => @usuario.isPJ 
         .itemForm
           = label "estado","Estado", :class => "labela"
           = select_tag "estado", options_for_select(@estados), :class => "inputa" 
         .itemForm
           = f.label :cidade_id, :class => "labela"
-          = f.select :cidade_id, options_for_select(@cidades), {}, { :class => "inputa" }
+          = f.select :cidade_id, options_for_select(@cidades), {:value => @usuario.cidade}, {:class => "inputa" }
         %div.div-submit-button
           = f.submit 'Finalizar', :class => "buttonForm"

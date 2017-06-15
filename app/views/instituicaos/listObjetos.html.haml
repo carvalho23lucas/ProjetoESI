@@ -26,14 +26,14 @@
 
 %p
   %h2
-    Objetos aceitos
+    Objetos cadastrados
 .separador2
 - @objetos = Objeto.where(instituicao_id: @instituicao.id)
 - @objetos.each do |objeto|
   .itemObjeto
     .itemObjetoIcone
       -@imagem = "/images/catgs/catg" + objeto.categoria_objeto_id.to_s +  ".png"
-      %img{:alt => "Doador Pessoa", :src => @imagem, :width => "90px"}/
+      %img{:alt => "Icone", :src => @imagem, :width => "90px"}/
     .itemObjetoNome
       %h1
         = objeto.nome
@@ -51,5 +51,10 @@
         = " "
         = objeto.unidade_medida
   .separador4
+.separador1
+%h2 Gostaria de cadastrar mais algum objeto?
+%a{:href => "/objetos/new"}    
+  .buttonbig
+    .buttonlink CADASTRAR
 .separador1
 .separador1

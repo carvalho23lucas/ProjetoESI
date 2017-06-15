@@ -5,17 +5,42 @@
       %ul
         - @doacao.errors.full_messages.each do |msg|
           %li= msg
-
-
-  .field
-    = f.label :quantidade
-    = f.number_field :quantidade
-  .field
-    = f.label :observacoes
-    = f.text_field :observacoes
-  .field
-    = f.hidden_field :usuario_id, :value => Usuario.find_by(email: Usuario.find(session[:userLogedIn]).email).id
-  .field
-    = f.hidden_field :objeto_id, :value => params[:objeto_id]
-  .actions
-    = f.submit 'Doar'
+  
+  -@objeto = Objeto.where(id: params[:objeto_id]).first
+  .separador
+  %form
+    %fieldset
+      .categoriaForm     
+        %h2 
+          A instituicao
+          = Instituicao.where(id: @objeto.instituicao_id).first.nome
+          ainda necessita receber
+          = @objeto.meta 
+          = @objeto.unidade_medida 
+          de 
+          = @objeto.nome 
+        .separador1
+        .separador1
+        .separador1
+        .separador3
+        .itemFormDoacao
+          = f.label :quantidade, "Quanto voce gostaria de doar?", :class => "labelc"
+          %br
+          .itemFormDoacaoQuantidade
+            = f.text_field :quantidade, :class => "inputd"
+            = @objeto.unidade_medida
+          %br
+        .separador1
+        .itemFormDoacao
+          = f.label :observacoes, "Você gostaria de adicionar alguma observação?",:class => "labelc"
+          %br
+          = f.text_field :observacoes, :class => "inputb" 
+        .field
+          = f.hidden_field :usuario_id, :value => Usuario.find_by(email: Usuario.find(session[:userLogedIn]).email).id
+        .field
+          = f.hidden_field :objeto_id, :value => params[:objeto_id]
+        .separador1
+        .separador1
+        
+        %div.div-submit-button
+          = f.submit 'Doar', :class => "buttonForm"
