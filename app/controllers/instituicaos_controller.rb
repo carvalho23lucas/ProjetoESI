@@ -51,13 +51,25 @@ class InstituicaosController < ApplicationController
     @cidades = get_lista_cidades(@instituicao.cidade.estado.id)
     
     respond_to do |format|
-      if @instituicao.save
-        session[:isLogedIn] = true
-        session[:isInstituicao] = true
-        session[:instLogedin] = @instituicao.id
-        format.html { redirect_to @instituicao, notice: 'Cadastro realizado com sucesso!' }
+      if(Instituicao.exists?(email: @instituicao.email) || Usuario.exists?(email:  @instituicao.email))
+        flash.now[:alert]="E-mail já cadastrado"
+        new
+        format.html { render 'instituicaos/new'}
       else
-        format.html { render :new }
+        if(Instituicao.exists?(documento: @instituicao.documento))
+          flash.now[:alert]="CNPJ já cadastrado"
+          new
+          format.html { render 'instituicaos/new'}
+        else
+          if @instituicao.save
+            session[:isLogedIn] = true
+            session[:isInstituicao] = true
+            session[:instLogedin] = @instituicao.id
+            format.html { redirect_to @instituicao, notice: 'Cadastro realizado com sucesso!' }
+          else
+            format.html { render :new }
+          end
+        end
       end
     end
   end
