@@ -19,10 +19,5 @@
           %td= doacao.objeto.nome
           %td= doacao.quantidade
           %td= doacao.observacoes
-          %td= link_to 'Show', doacao
-          %td= link_to 'Edit', edit_doacao_path(doacao)
-          %td= link_to 'Destroy', doacao, :method => :delete, :data => { :confirm => 'Are you sure?' }
-  
+          %td= link_to 'Ver', doacao
   %br
-  
-  = link_to 'New Doacao', new_doacao_path
