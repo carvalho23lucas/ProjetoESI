@@ -7,7 +7,7 @@ class DoacaosController < ApplicationController
     if session[:isInstituicao] 
       @instituicao = Instituicao.find_by(id: session[:instLogedin])
       if params[:status] == 'pendentes'
-        @doacaos = Doacao.joins(:objeto).where("objetos.instituicao_id = ? and (status = 0 or status = 1 or status = 2)", @instituicao.id).all
+        @doacaos = Doacao.joins(:objeto).where("objetos.instituicao_id = ? and (status = 0 or status = 1)", @instituicao.id).all
       else
         @doacaos = Doacao.joins(:objeto).where("objetos.instituicao_id = ? and (status = 3)", @instituicao.id).all
       end
@@ -33,6 +33,20 @@ class DoacaosController < ApplicationController
 
   # POST /doacaos
 
+  def contato
+    #update status = 1
+    
+  end
+  
+  
+  def aprovar
+    if params[:aprovar] == 'sim'
+      #update status = 3
+    else
+      #update status = 2
+    end
+  end
+  
   def create
     @doacao = Doacao.new(doacao_params)
     respond_to do |format|

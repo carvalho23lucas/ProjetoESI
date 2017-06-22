@@ -19,13 +19,16 @@
 .separador1
 %h2 Doações recebidas
 %a{:href => "/doacaos?status=pendentes"}    
-  .button1.inline-button
+  .button1.inline-button.pos-relative
     -@c = Doacao.joins(:objeto).where("objetos.instituicao_id = ? and (status = 0 or status = 1)", @instituicao.id).all.size
-    .buttonlink 
-    -if @c == 0
-      = "CANCELADAS"
-    -else
-      = "PENDENTES(" + @c.to_s + ")"
+    .buttonlink.inline-button 
+      -if @c == 0
+        = "CANCELADAS"
+      -else
+        .notification1.inline-button
+          PENDENTES
+        .notification.inline-button
+          = @c.to_s 
 %a{:href => "/doacaos?status=aceitas"}    
   .button2.inline-button
     .buttonlink ACEITAS

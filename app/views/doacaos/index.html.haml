@@ -47,34 +47,36 @@
         %h2   
           = doacao.usuario.nome
         .h3   
-          = "Status: Contato pendente"
+          = "Contato pendente"
     -when 1  
-      %a{:href => "/home/home"}    
-        .itemObjetoBotao
-          .buttonlink
-            CONFIRMAR
-      %a{:href => "/home/home"}
-        .itemObjetoBotao
-          .buttonlink
-            REJEITAR
+      .itemObjetoBotao1.flex-button
+        %a{:href => "/home/home"}
+          .itemObjetoBotao1a
+            .buttonlink
+              CONFIRMAR
+        .separador2
+        %a{:href => "/home/home"}
+          .itemObjetoBotao1a
+            .buttonlink  
+              REJEITAR
       .itemObjetoMeta
         %h2   
           = doacao.usuario.nome
         .h3   
-          = "Status: Aguardando aprovação"
+          = "Aprovação pendente"
     -when 2  
       
       .itemObjetoMeta
         %h2   
           = doacao.usuario.nome
         .h3   
-          = "Status: Cancelado"
+          = "Cancelado"
     -else  
       .itemObjetoMeta
         %h2   
           = doacao.usuario.nome
         .h3   
-          = "Status: Aprovado"
+          = doacao.observacoes
   .separador4
 .separador1
 .separador1

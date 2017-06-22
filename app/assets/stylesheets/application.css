@@ -229,6 +229,7 @@ a:hover{
     background: #64607a;
 }
 
+
 .button2 {
  background-color: #fcfcfc;
  color: #4f4b69;
@@ -262,8 +263,14 @@ a:hover{
 .button2:hover{
     background: #f3f2f7;
 }
+
 .inline-button {
     display: inline-block;
+    line-height: 45px;
+}
+
+.flex-button {
+    display: block;
     line-height: 45px;
 }
 
@@ -275,6 +282,55 @@ a:hover{
   
   
   margin:0px;
+}
+
+.notification1{
+ float: left;    
+    
+}
+
+.pos-relative{
+ position: relative;
+}
+
+.notification{
+    
+ background-color: #fcfcfc;
+ color: #4f4b69;
+ text-align: center;
+ font-size: medium;
+ vertical-align: middle;
+ width: 20px;
+ height: 20px;
+ border-style: solid;
+ border-width: thin;
+ 
+ border-color: #888888; 
+ margin: 0 auto;
+ margin-left:-100;
+ 
+ display: -webkit-flex;
+ display: flex;
+ 
+ -webkit-align-items: center;
+ align-items: center;
+ 
+ -webkit-justify-content: center;
+ justify-content: center;
+
+ transition: background .25s ease-in-out;
+ -moz-transition: background .25s ease-in-out;
+ -webkit-transition: background .25s ease-in-out;
+ 
+ -moz-border-radius:45px;
+ -webkit-border-radius:45px;
+ border-radius:45px;
+ 
+ float: left;
+ 
+ position: absolute;
+ top: -3px;
+ right: -3px;
 }
 
 .usnameheader {
@@ -992,6 +1048,50 @@ p{
     background: #64607a;
 }
 
+.itemObjetoBotao1{
+   
+    height:100px;
+    width: 130px;
+     
+    float: right;
+   
+ -webkit-align-items: center;
+ align-items: center;
+ 
+ -webkit-justify-content: center;
+ justify-content: center;
+    
+    transition: background .25s ease-in-out;
+ -moz-transition: background .25s ease-in-out;
+ -webkit-transition: background .25s ease-in-out;
+ 
+} 
+
+
+.itemObjetoBotao1a{
+    background-color: #4f4b69;
+    color: #ffffff;
+ 
+    text-align: center;
+    vertical-align: middle;
+ 
+    height:49px;
+    width: 130px;
+     
+   -webkit-align-items: center;
+   align-items: center;
+   -webkit-justify-content: center;
+   justify-content: center;
+    
+   transition: background .25s ease-in-out;
+   -moz-transition: background .25s ease-in-out;
+  -webkit-transition: background .25s ease-in-out;
+ 
+}
+
+.itemObjetoBotao1a:hover{
+    background: #64607a;
+} 
  
 .show-instituicao {
     padding: 6px;
