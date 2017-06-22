@@ -18,10 +18,14 @@
 .separador1
 .separador1
 %h2 Doações recebidas
-%a{:href => "/doacaos/listPendingDoacaos"}    
+%a{:href => "/doacaos"}    
   .button1.inline-button
-    .buttonlink PENDENTES(0)
--@href = "/instituicaos/listObjetos/" + @instituicao.id.to_s
+    -@c = Doacao.joins(:objeto).where("objetos.instituicao_id = ? and (status = 0 or status = 1)", @instituicao.id).all.size
+    .buttonlink 
+    -if @c == 0
+      = "CANCELADAS"
+    -else
+      = "PENDENTES(" + @c.to_s + ")"
 %a{:href => "/doacaos"}    
   .button2.inline-button
     .buttonlink ACEITAS

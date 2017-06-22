@@ -6,12 +6,21 @@ class DoacaosController < ApplicationController
   def index
     if session[:isInstituicao] 
       @instituicao = Instituicao.find_by(id: session[:instLogedin])
-      @doacaos = Doacao.joins(:objeto).where("objetos.instituicao_id = ?", @instituicao.id).all
+      @doacaos = Doacao.joins(:objeto).where("objetos.instituicao_id = ? and status = 3", @instituicao.id).all
     else
       @doacaos = nil
     end  
   end
 
+  def pend
+    if session[:isInstituicao] 
+      @instituicao = Instituicao.find_by(id: session[:instLogedin])
+      @doacaos = Doacao.joins(:objeto).where("objetos.instituicao_id = ? and (status = 0 or status = 1 or status = 2)", @instituicao.id).all
+    else
+      @doacaos = nil
+    end  
+  end
+  
   # GET /doacaos/1
   
   #def show

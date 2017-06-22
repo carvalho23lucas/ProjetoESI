@@ -1,23 +1,89 @@
-- if @doacaos 
-  %h1 Doações Recebidas
-  
-  %table
-    %thead
-      %tr
-        %th Usuario
-        %th Objeto
-        %th Quantidade
-        %th Observacoes
-        %th
-        %th
-        %th
-  
-    %tbody
-      - @doacaos.each do |doacao|
-        %tr
-          %td= doacao.usuario.nome
-          %td= doacao.objeto.nome
-          %td= doacao.quantidade
-          %td= doacao.observacoes
-          %td= link_to 'Ver', doacao
-  %br
+-@instituicao = Instituicao.find(session[:instLogedin])
+.separador1
+.separador1
+.separador
+.separador1
+.itemObjeto
+  .itemObjetoIcone
+    -@imagem = "/images/logoinst.png"
+    %img{:alt => "Doador Pessoa", :src => @imagem, :width => "90px"}/
+  .itemObjetoNome
+    %h1
+      = @instituicao.nome
+    .h2 
+      = @instituicao.area_atuacao.nome
+  .itemObjetoMeta
+    %h2   
+      = @instituicao.email
+    .h3
+      = @instituicao.cidade.nome
+      = "-"
+      = Estado.where(id: @instituicao.cidade.estado.id).first.sigla
+
+.separador1
+.separador1
+.separador
+%p
+  %h2
+    Doações recebidas
+.separador2
+- @doacaos.each do |doacao|
+  .itemObjeto
+    .itemObjetoIcone
+      -@imagem = "/images/catgs/catg" + doacao.objeto.categoria_objeto_id.to_s +  ".png"
+      %img{:alt => "Doador Pessoa", :src => @imagem, :width => "90px"}/
+    .itemObjetoNome
+      %h1
+        = doacao.objeto.nome
+      .h2 
+        = doacao.quantidade
+        = doacao.objeto.unidade_medida
+    -case doacao.status
+    -when 0  
+      %a{:href => "/home/home"}    
+        .itemObjetoBotao
+          .buttonlink
+            CONTATO
+      .itemObjetoMeta
+        %h2   
+          = doacao.usuario.nome
+        .h3   
+          = "Status: Contato pendente"
+    -when 1  
+      %a{:href => "/home/home"}    
+        .itemObjetoBotao
+          .buttonlink
+            CONFIRMAR
+      %a{:href => "/home/home"}
+        .itemObjetoBotao
+          .buttonlink
+            REJEITAR
+      .itemObjetoMeta
+        %h2   
+          = doacao.usuario.nome
+        .h3   
+          = "Status: Aguardando aprovação"
+    -when 2  
+      
+      .itemObjetoMeta
+        %h2   
+          = doacao.usuario.nome
+        .h3   
+          = "Status: Cancelado"
+    -else  
+      .itemObjetoMeta
+        %h2   
+          = doacao.usuario.nome
+        .h3   
+          = "Status: Aprovado"
+  .separador4
+.separador1
+.separador1
+%a{:href => "/home/home"} 
+  .button1
+    .buttonlink VOLTAR
+.separador1
+.separador1
+.separador2
+.separador1
+.separador1

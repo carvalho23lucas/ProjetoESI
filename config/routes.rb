@@ -24,8 +24,8 @@ Rails.application.routes.draw do
   resources :layouts
   
   resources :doacaos  
-  get '/doacoes/cadastro' => 'doacaos#new'
-  
+    get '/doacoes/cadastro' => 'doacaos#new'
+    
   get 'login/login'
   get 'home/index'
   get 'home/home'
