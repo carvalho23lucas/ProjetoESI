@@ -69,7 +69,7 @@ class InstituicaosController < ApplicationController
             session[:isLogedIn] = true
             session[:isInstituicao] = true
             session[:instLogedin] = @instituicao.id
-            format.html { redirect_to @instituicao, notice: 'Cadastro realizado com sucesso!' }
+            format.html { redirect_to '/home/home', notice: 'Cadastro realizado com sucesso!' }
           else
             format.html { render :new }
           end

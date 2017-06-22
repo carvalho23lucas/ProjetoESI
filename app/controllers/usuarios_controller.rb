@@ -62,7 +62,7 @@ class UsuariosController < ApplicationController
           if @usuario.save
             session[:isLogedIn] = true
             session[:userLogedIn] = @usuario.id
-            format.html { redirect_to @usuario, notice: 'Cadastro realizado com sucesso!'}
+            format.html { redirect_to '/home/home', notice: 'Cadastro realizado com sucesso!'}
           else
             format.html { render :new }
           end
