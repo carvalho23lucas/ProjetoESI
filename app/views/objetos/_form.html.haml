@@ -26,5 +26,7 @@
           = f.label :observacoes, :class => "labela"
           = f.text_field :observacoes, :class => "inputa"
         .separador2
+        .field
+          = f.hidden_field :instituicao_id, :value => Instituicao.find(session[:instLogedin]).id
         %div.div-submit-button
           = f.submit 'Cadastar', :class => "buttonForm"

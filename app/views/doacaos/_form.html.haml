@@ -6,7 +6,7 @@
         - @doacao.errors.full_messages.each do |msg|
           %li= msg
   
-  -@objeto = Objeto.where(id: params[:objeto_id]).first
+  - @objeto = Objeto.where(id: params[:objeto_id]).first
   .separador
   %form
     %fieldset
@@ -36,9 +36,11 @@
           %br
           = f.text_field :observacoes, :class => "inputb" 
         .field
+          = f.hidden_field :status, :value => 0
+        .field
           = f.hidden_field :usuario_id, :value => Usuario.find_by(email: Usuario.find(session[:userLogedIn]).email).id
         .field
-          = f.hidden_field :objeto_id, :value => params[:objeto_id]
+          = f.hidden_field :objeto_id, :value => @objeto.id
         .separador1
         .separador1
         

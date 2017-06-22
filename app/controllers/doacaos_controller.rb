@@ -33,7 +33,8 @@ class DoacaosController < ApplicationController
     @doacao = Doacao.new(doacao_params)
     respond_to do |format|
       if @doacao.save
-        format.html { redirect_to @doacao, notice: 'Doacao was successfully created.' }
+        format.html { render :success }
+        # format.html { redirect_to @doacao, notice: 'Doacao was successfully created.' }
       else
         format.html { render :new }
       end
@@ -69,6 +70,6 @@ class DoacaosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def doacao_params
-      params.require(:doacao).permit(:usuario_id, :objeto_id, :quantidade, :observacoes)
+      params.require(:doacao).permit(:usuario_id, :objeto_id, :quantidade, :observacoes, :status)
     end
 end

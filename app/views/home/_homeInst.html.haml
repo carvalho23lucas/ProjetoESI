@@ -1,26 +1,29 @@
 -@instituicao = Instituicao.find(session[:instLogedin])
 .separador1
 .separador1
-.separador
-.separador1
 %p
   %h1 
     = @instituicao.nome
+.separador1
 .separador2
 .separador1
-%h3 Objetos cadastrados
+%h2 Objetos cadastrados
 %a{:href => "/objetos/new"}    
   .button1.inline-button
     .buttonlink ADICIONAR
 -@href = "/instituicaos/listObjetos/" + @instituicao.id.to_s
 %a{:href => @href}    
-  .button1.inline-button
+  .button2.inline-button
     .buttonlink LISTAR
 .separador1
-.separador2
-%h3 Doacoes
-%a{:href => "/doacaos"}
-  .button1.inline-button
-    .buttonlink RECEBIDAS
 .separador1
-.separador2
+%h2 Doações recebidas
+%a{:href => "/doacaos/listPendingDoacaos"}    
+  .button1.inline-button
+    .buttonlink PENDENTES(0)
+-@href = "/instituicaos/listObjetos/" + @instituicao.id.to_s
+%a{:href => "/doacaos"}    
+  .button2.inline-button
+    .buttonlink ACEITAS
+.separador1
+.separador1

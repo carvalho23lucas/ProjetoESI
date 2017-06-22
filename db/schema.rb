@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20161126235409) do
     t.integer  "usuario_id"
     t.integer  "objeto_id"
     t.integer  "quantidade"
+    t.integer  "status"
     t.string   "observacoes"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

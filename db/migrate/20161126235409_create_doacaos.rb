@@ -4,8 +4,9 @@ class CreateDoacaos < ActiveRecord::Migration[5.0]
       t.references :usuario, foreign_key: true
       t.references :objeto, foreign_key: true
       t.integer :quantidade
+      t.integer :status
       t.string :observacoes
-
+      
       t.timestamps
     end
   end

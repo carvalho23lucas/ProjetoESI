@@ -1,0 +1,33 @@
+
+.separador1
+.separador1
+.separador
+.separador1
+.itemObjeto
+  .itemObjetoIcone
+    -@imagem = "/images/logoinst.png"
+    %img{:alt => "Doador Pessoa", :src => @imagem, :width => "90px"}/
+  .itemObjetoNome
+    %h1
+      = @instituicao.nome
+    .h2 
+      = @instituicao.area_atuacao.nome
+  .itemObjetoMeta
+    %h2   
+      = @instituicao.email
+    .h3
+      = @instituicao.cidade.nome
+      = "-"
+      = Estado.where(id: @instituicao.cidade.estado.id).first.sigla
+
+.separador1
+.separador1
+.separador
+
+%p
+  %h2
+    Doações recebidas
+.separador2
+
+.separador1
+.separador1

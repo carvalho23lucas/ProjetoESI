@@ -7,4 +7,5 @@ class HomeController < ApplicationController
     @objetos = Objeto.where("UPPER(nome) LIKE UPPER(?) ", "%#{params[:query]}%")
     render "objetos/index"
   end
+  
 end
