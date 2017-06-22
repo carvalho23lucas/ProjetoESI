@@ -2,6 +2,12 @@
 .h1 Lista de Instituições
 
 .separador1
+%form{ :controller => 'instituicaos', :method => 'get' }
+  .categoriaForm
+    .itemFormLogin
+      Categoria:
+      %input{:name => "query", :type => "text", :value => "", :class => ""}
+      %input{ :type => "submit" , :class => "buttonForm", :value => "FILTRAR"}
 .separador1
 .separador
 - @instituicaos.each do |instituicao|

@@ -3,7 +3,11 @@ class InstituicaosController < ApplicationController
 
   # GET /instituicaos
   def index
-    @instituicaos = Instituicao.all
+    if(params.has_key?(:query))
+      @instituicaos = Instituicao.where("area_atuacao_id in (?)", AreaAtuacao.where("UPPER(nome) like UPPER(?)","%#{params[:query]}%").ids)
+    else
+      @instituicaos = Instituicao.all
+    end
   end
 
   # GET /instituicaos/details
