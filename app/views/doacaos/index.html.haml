@@ -39,7 +39,9 @@
         = doacao.objeto.unidade_medida
     -case doacao.status
     -when 0  
-      %a{:href => "/home/home"}    
+      -@href = "/doacaos/" + doacao.id.to_s + "/contato"
+      %a{:href => @href}
+        -#ele ja esta alterando a tabela como contatado, tem que ser na pg de contato, o update ta na controller      
         .itemObjetoBotao
           .buttonlink
             CONTATO
@@ -49,13 +51,16 @@
         .h3   
           = "Contato pendente"
     -when 1  
+      -#não sei como eu chamo a função do controller aqui, alguem salva pf
+      -@href = "/doacaos/" + doacao.id.to_s + "/aprovar?aprovar=sim"
+      -@href1 = "/doacaos/" + doacao.id.to_s + "/aprovar?aprovar=nao"
       .itemObjetoBotao1.flex-button
-        %a{:href => "/home/home"}
+        %a{:href => @href}
           .itemObjetoBotao1a
             .buttonlink
               CONFIRMAR
         .separador2
-        %a{:href => "/home/home"}
+        %a{:href => @href1}
           .itemObjetoBotao1a
             .buttonlink  
               REJEITAR

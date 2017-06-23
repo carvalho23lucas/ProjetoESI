@@ -18,8 +18,16 @@
 .separador1
 .separador1
 %h2 Doações recebidas
-%a{:href => "/doacaos?status=pendentes"}    
-  .button1.inline-button.pos-relative
+%a{:href => "/doacaos?status=aceitas"}    
+  .button1.inline-button
+    .buttonlink ACEITAS
+-@c = Doacao.joins(:objeto).where("objetos.instituicao_id = ? and (status = 0 or status = 1)", @instituicao.id).all.size
+-if @c == 0
+  -@href =  "/doacaos?status=canceladas"
+-else
+  -@href =  "/doacaos?status=pendentes"
+%a{:href => @href}    
+  .button2.inline-button.pos-relative
     -@c = Doacao.joins(:objeto).where("objetos.instituicao_id = ? and (status = 0 or status = 1)", @instituicao.id).all.size
     .buttonlink.inline-button 
       -if @c == 0
@@ -29,8 +37,5 @@
           PENDENTES
         .notification.inline-button
           = @c.to_s 
-%a{:href => "/doacaos?status=aceitas"}    
-  .button2.inline-button
-    .buttonlink ACEITAS
 .separador1
 .separador1

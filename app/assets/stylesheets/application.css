@@ -295,13 +295,14 @@ a:hover{
 
 .notification{
     
- background-color: #fcfcfc;
- color: #4f4b69;
+ background-color: #4f4b69;
+ color: #ffffff;
+ 
  text-align: center;
  font-size: medium;
  vertical-align: middle;
- width: 20px;
- height: 20px;
+ width: 23px;
+ height: 23px;
  border-style: solid;
  border-width: thin;
  
@@ -329,8 +330,8 @@ a:hover{
  float: left;
  
  position: absolute;
- top: -3px;
- right: -3px;
+ top: -8px;
+ right: -8px;
 }
 
 .usnameheader {
