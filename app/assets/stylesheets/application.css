@@ -812,6 +812,14 @@ fieldset{
     background: #64607a;
 }
 
+.buttonFormRed {
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+.buttonFormRed:hover {
+    background: #c12e2a;
+}
+
 .buttonForm1{    
     
     background-color: #4f4b69;

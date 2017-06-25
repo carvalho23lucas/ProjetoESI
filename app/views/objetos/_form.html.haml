@@ -1,4 +1,4 @@
-= form_for @objeto, :url => {:action => 'create'} do |f|
+= form_for @objeto do |f|
   - if @objeto.errors.any?
     #error_explanation
       %h2= "#{pluralize(@objeto.errors.count, "error")} prohibited this objeto from being saved:"
@@ -27,4 +27,4 @@
           = f.text_field :observacoes, :class => "inputa"
         .separador2
         %div.div-submit-button
-          = f.submit 'Cadastar', :class => "buttonForm"
+          = f.submit 'Finalizar', :class => "buttonForm"

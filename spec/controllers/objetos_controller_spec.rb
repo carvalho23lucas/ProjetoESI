@@ -163,8 +163,9 @@ RSpec.describe ObjetosController, type: :controller do
 
     it "redirects to the objetos list" do
       objeto = Objeto.create! valid_attributes
+      instID = objeto.instituicao_id.to_s
       delete :destroy, params: {id: objeto.to_param}, session: valid_session
-      expect(response).to redirect_to(objetos_url)
+      expect(response).to redirect_to('/instituicaos/listObjetos/' + instID)
     end
   end
 

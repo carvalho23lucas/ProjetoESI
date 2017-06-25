@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :objetos
   root 'home#index'
+  post 'objetos/:id/destroy' => 'objetos#destroy'
+  
   resources :instituicaos do
     collection do
       get 'details'

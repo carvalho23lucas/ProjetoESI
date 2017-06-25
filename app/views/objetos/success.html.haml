@@ -1,7 +1,11 @@
 .separador1
 .separador1
 .separador1
-%h1 Objeto cadastrado com sucesso!
+-if e == 1
+  %h1 Objeto atualizado com sucesso!
+-else
+  %h1 Objeto cadastrado com sucesso!
+
 .separador2
 
 %h2 Agora é só aguardar as doações
@@ -20,8 +24,9 @@
       = @objeto.nome
     .h2 
       = @objeto.observacoes
-  .itemObjetoBotao
-    .buttonlink
+  %a{:href => edit_objeto_path(@objeto)}
+    .itemObjetoBotao
+      .buttonlink EDITAR
       
   .itemObjetoMeta
     %h2

@@ -17,7 +17,7 @@ class ObjetosController < ApplicationController
     @categorias = CategoriaObjeto.all.order(:nome).map { |categoria| [categoria.nome, categoria.id]}.prepend(['Selecione uma categoria', 0])
   end
   
-    # GET /objetos/1/edit
+  # GET /objetos/1/edit
   def edit
     @categorias = CategoriaObjeto.all.order(:nome).map { |categoria| [categoria.nome, categoria.id]}.prepend(['Selecione uma categoria', 0])
   end
@@ -41,7 +41,7 @@ class ObjetosController < ApplicationController
   
     respond_to do |format|
       if @objeto.save
-        format.html { render :success }
+        format.html { render :success, :locals => {:e => 0} }
         # format.html { redirect_to @objeto, notice: 'Objeto was successfully created.' }
       else
         format.html { render :new }
@@ -57,14 +57,11 @@ class ObjetosController < ApplicationController
   # PATCH/PUT /objetos/1.json
   def update
     @categorias = CategoriaObjeto.all.order(:nome).map { |categoria| [categoria.nome, categoria.id]}.prepend(['Selecione uma categoria', 0])
-  
     respond_to do |format|
       if @objeto.update(objeto_params)
-        format.html { redirect_to @objeto, notice: 'Objeto was successfully updated.' }
-        format.json { render :show, status: :ok, location: @objeto }
+        format.html { render :success, :locals => {:e => 1} }
       else
         format.html { render :edit }
-        format.json { render json: @objeto.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -72,10 +69,10 @@ class ObjetosController < ApplicationController
   # DELETE /objetos/1
   # DELETE /objetos/1.json
   def destroy
+    @instID = @objeto.instituicao_id.to_s
     @objeto.destroy
     respond_to do |format|
-      format.html { redirect_to objetos_url, notice: 'Objeto was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to '/instituicaos/listObjetos/' + @instID }
     end
   end
 
