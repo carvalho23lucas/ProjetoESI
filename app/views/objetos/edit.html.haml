@@ -2,6 +2,7 @@
 
 = render 'form'
 
-%form{ :controller => 'objetos', :action => 'destroy', :method => 'post' }
+%a{:href => '/objetos/' + @objeto.id.to_s + '/destroy', :onclick => "return confirm('Tem certeza que deseja excluir o objeto?');"}
   .categoriaForm
-    %input{ :type => "submit" , :class => "buttonForm buttonFormRed", :value => "Excluir", :onclick => "return confirm('Tem certeza que deseja excluir o objeto?');"}
+    .buttonForm.buttonFormRed
+      Desativar

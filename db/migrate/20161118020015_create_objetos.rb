@@ -7,6 +7,7 @@ class CreateObjetos < ActiveRecord::Migration[5.0]
       t.string :unidade_medida
       t.integer :meta
       t.string :observacoes
+      t.boolean :is_inativo
 
       t.timestamps
     end

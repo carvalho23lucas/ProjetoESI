@@ -28,7 +28,7 @@
   %h2
     Objetos cadastrados
 .separador2
-- @objetos = Objeto.where(instituicao_id: @instituicao.id)
+- @objetos = Objeto.where(instituicao_id: @instituicao.id).where.not(is_inativo: true)
 - @objetos.each do |objeto|
   .itemObjeto
     .itemObjetoIcone

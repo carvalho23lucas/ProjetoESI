@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   end
   
   def search
-    @objetos = Objeto.where("UPPER(nome) LIKE UPPER(?) ", "%#{params[:query]}%")
+    @objetos = Objeto.where("UPPER(nome) LIKE UPPER(?) AND NOT is_inativo", "%#{params[:query]}%")
     render "objetos/index"
   end
   

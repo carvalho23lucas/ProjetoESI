@@ -5,8 +5,8 @@
 %form{ :controller => 'instituicaos', :method => 'get' }
   .categoriaForm
     .itemFormLogin
-      Categoria:
-      %input{:name => "query", :type => "text", :value => "", :class => ""}
+      %h3{ :style => 'display: inline' } Área de atuação:
+      = select_tag "query", options_for_select(@areas_atuacao), :class => "inputa"
       %input{ :type => "submit" , :class => "buttonForm", :value => "FILTRAR"}
 .separador1
 .separador

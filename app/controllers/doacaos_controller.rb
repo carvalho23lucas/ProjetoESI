@@ -37,18 +37,40 @@ class DoacaosController < ApplicationController
 
   def contato
     set_doacao
+  end
+  
+  def conf_contato
+    set_doacao
     Doacao.where(:id => @doacao.id).update_all("status = 1")
+    respond_to do |format|
+      format.html { redirect_to '/doacaos?status=pendentes' }
+    end
     #update status = 1
+  end
+  
+  def back_contato
+    set_doacao
+    
+    index
+    respond_to do |format|
+      format.html { redirect_to '/doacaos?status=pendentes' }
+    end
   end
   
   def aprovar
     set_doacao
+    index
     if params[:aprovar] == 'sim'
+      @newVal = @doacao.objeto.meta - @doacao.quantidade
+      Objeto.where(:id => @doacao.objeto.id).update_all("meta = " + (@newVal < 0 ? 0 : @newVal).to_s)
       Doacao.where(:id => @doacao.id).update_all("status = 3")
       #update status = 3
     else
       Doacao.where(:id => @doacao.id).update_all("status = 2")
       #update status = 2
+    end
+    respond_to do |format|
+      format.html { redirect_to '/doacaos?status=pendentes' }
     end
   end
   

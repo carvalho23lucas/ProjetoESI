@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20161126235409) do
     t.string   "unidade_medida"
     t.integer  "meta"
     t.string   "observacoes"
+    t.boolean  "is_inativo"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.index ["categoria_objeto_id"], name: "index_objetos_on_categoria_objeto_id", using: :btree

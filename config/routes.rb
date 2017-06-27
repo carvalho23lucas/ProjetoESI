@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :objetos
   root 'home#index'
-  post 'objetos/:id/destroy' => 'objetos#destroy'
+  get 'objetos/:id/destroy' => 'objetos#destroy'
   
   resources :instituicaos do
     collection do
@@ -28,6 +28,9 @@ Rails.application.routes.draw do
   resources :doacaos  
     get '/doacoes/cadastro' => 'doacaos#new'
     get '/doacaos/:id/contato' => 'doacaos#contato'
+    get '/doacaos/:id/conf_contato' => 'doacaos#conf_contato'
+    get '/doacaos/:id/aprovar' => 'doacaos#aprovar'
+    get '/doacaos/:id/back_contato' => 'doacaos#back_contato'
     
   get 'login/login'
   get 'home/index'

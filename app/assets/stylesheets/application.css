@@ -813,8 +813,11 @@ fieldset{
 }
 
 .buttonFormRed {
+    display: inline-block;
+    line-height: 35px;
+    border: 2px outset #d43f3a;
+    box-sizing: border-box;
     background-color: #d9534f;
-    border-color: #d43f3a;
 }
 .buttonFormRed:hover {
     background: #c12e2a;

@@ -1,5 +1,6 @@
 class ObjetosController < ApplicationController
-  before_action :set_objeto, only: [:show, :edit, :update, :destroy]
+  before_action :set_objeto, only: [:show, :update]
+  before_action :set_objeto_by_trueid, only: [:edit, :destroy]
 
   # GET /objetos
   def index
@@ -38,7 +39,7 @@ class ObjetosController < ApplicationController
     else
       @objeto.instituicao_id = 0 
     end
-  
+    @objeto.is_inativo = false
     respond_to do |format|
       if @objeto.save
         format.html { render :success, :locals => {:e => 0} }
@@ -70,7 +71,8 @@ class ObjetosController < ApplicationController
   # DELETE /objetos/1.json
   def destroy
     @instID = @objeto.instituicao_id.to_s
-    @objeto.destroy
+    @objeto.is_inativo = true
+    @objeto.save
     respond_to do |format|
       format.html { redirect_to '/instituicaos/listObjetos/' + @instID }
     end
@@ -79,6 +81,9 @@ class ObjetosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_objeto
+      @objeto = Objeto.find(params[:objeto_id])
+    end
+    def set_objeto_by_trueid
       @objeto = Objeto.find(params[:id])
     end
 

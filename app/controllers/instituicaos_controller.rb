@@ -3,8 +3,9 @@ class InstituicaosController < ApplicationController
 
   # GET /instituicaos
   def index
+    @areas_atuacao = get_lista_areas_atuacao
     if(params.has_key?(:query))
-      @instituicaos = Instituicao.where("area_atuacao_id in (?)", AreaAtuacao.where("UPPER(nome) like UPPER(?)","%#{params[:query]}%").ids)
+      @instituicaos = Instituicao.where("area_atuacao_id in (?)", params[:query])
     else
       @instituicaos = Instituicao.all
     end
@@ -21,7 +22,7 @@ class InstituicaosController < ApplicationController
   # GET instituicaos/listObjetos/1
   def listObjetos
     @instituicao = Instituicao.find(params[:id])
-    @objetos = Objeto.where(:instituicao_id => params[:id])
+    @objetos = Objeto.where(:instituicao_id => params[:id]).where.not(is_inativo: true)
   end
 
   def logoff

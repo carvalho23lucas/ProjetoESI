@@ -1,5 +1,28 @@
-.separador3
-.descrHome5
-  %h1 Precisamos implementar lalala
-  botão confirmar, botão voltar
-  
+.separador1
+%h1 
+  Contato
+.separador1   
+.separador
+.separador1     
+.separador1     
+%h2
+  Entre em contato com 
+  = @doacao.usuario.nome
+  pelo e-mail 
+  = @doacao.usuario.email
+.separador1     
+.separador1     
+.separador2
+.separador1  
+.separador1     
+.separador1     
+-@href = "/doacaos/" + @doacao.id.to_s + "/conf_contato/"
+%a{:href => @href }    
+  .buttonbig
+    .buttonlink FINALIZAR CONTATO
+.separador1        
+-@href1 = "/doacaos/" + @doacao.id.to_s + "/back_contato/"
+%a{:href => @href1}    
+  .buttonbig
+    .buttonlink VOLTAR
+
