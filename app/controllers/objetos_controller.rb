@@ -1,6 +1,6 @@
 class ObjetosController < ApplicationController
-  before_action :set_objeto, only: [:show, :update]
-  before_action :set_objeto_by_trueid, only: [:edit, :destroy]
+  before_action :set_objeto, only: [:show]
+  before_action :set_objeto_by_trueid, only: [:edit, :update, :destroy]
 
   # GET /objetos
   def index
