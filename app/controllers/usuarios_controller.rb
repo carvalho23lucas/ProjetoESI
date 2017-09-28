@@ -64,6 +64,7 @@ class UsuariosController < ApplicationController
             session[:userLogedIn] = @usuario.id
             format.html { redirect_to '/home/home', notice: 'Cadastro realizado com sucesso!'}
           else
+            new
             format.html { render :new }
           end
         end
@@ -107,6 +108,6 @@ class UsuariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def usuario_params
-      params.require(:usuario).permit(:documento, :nome, :email, :senha, :cidade_id, :isPJ, :isInstituicao)
+      params.require(:usuario).permit(:documento, :nome, :email, :senha, :senha_confirmation, :cidade_id, :isPJ, :isInstituicao)
     end
 end

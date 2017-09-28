@@ -1,13 +1,16 @@
 = form_for @usuario do |f|
   - if @usuario.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@usuario.errors.count, "error")} prohibited this usuario from being saved:"
-      %ul
-        - @usuario.errors.full_messages.each do |msg|
-          %li= msg
-  
+    %h2= "#{pluralize(@usuario.errors.count, "error")} prohibited this usuario from being saved:"
+    
+    %ul
+      - @usuario.errors.full_messages.each do |msg|
+        %li= msg
+
   - if flash[:alert]
     %h2= flash[:alert]
+  
+ 
 
   .form 
     %fieldset
@@ -27,8 +30,8 @@
           = f.label :senha, :class => "labela"
           = f.password_field :senha, :class => "inputa"
         .itemForm
-          = label "cfsenha", "Confirmar senha",:class => "labela"
-          %input{:name => "cfsenha", :type => "password", :value => "", :class => "inputa"}
+          = label :senha_confirmation, "Confirmar senha",:class => "labela"
+          = f.password_field :senha_confirmation, :class => "inputa"
           = f.hidden_field :isPJ, :value => @usuario.isPJ 
         .itemForm
           = label "estado","Estado", :class => "labela"
